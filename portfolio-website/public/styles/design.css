@@ -95,7 +95,7 @@ body {
   font-size: 13px;
   margin-right: 5px;
   margin-bottom: 5px;
-  line-height: 30px;
+  display: inline-block;
 }
 
 .card button {

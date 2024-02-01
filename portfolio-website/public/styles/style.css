@@ -51,7 +51,7 @@ a {
 
 /* home div  */
 .home {
-  background: url("./images/pattern.png"),
+  background: url("../images/pattern.png"),
     linear-gradient(#212121, rgb(5, 5, 5));
   height: 100vh;
 }
@@ -219,7 +219,7 @@ a {
 
 /* projects section */
 .projects {
-  height: 100vh;
+  height: 80vh;
   position: relative;
 }
 
@@ -238,7 +238,7 @@ a {
 
 .text {
   width: 20%;
-  height: 50%;
+  height: 60%;
   margin-left: 16.5%;
   display: inline-flex;
   flex-direction: column;
@@ -257,7 +257,7 @@ a {
 
 .text2 {
   width: 20%;
-  height: 50%;
+  height: 60%;
   margin-left: 70%;
   display: inline-flex;
   flex-direction: column;
@@ -296,12 +296,12 @@ a {
   left: -31%;
 }
 
-.web-design {
+.projects-text-title {
   display: flex;
   flex-direction: column;
 }
 
-.web-design span {
+.projects-text-title span {
   font-size: 50px;
   font-weight: bold;
   line-height: 40px;
@@ -333,7 +333,7 @@ a {
   top: 50%;
   transform: translate(0%, -50%);
   width: 50%;
-  height: 50%;
+  height: 60%;
   margin-left: 40%;
   overflow: hidden;
   display: inline-block;
@@ -345,7 +345,7 @@ a {
   top: 50%;
   transform: translate(0%, -50%);
   width: 50%;
-  height: 50%;
+  height: 60%;
   margin-left: 12%;
   overflow: hidden;
   display: inline-block;
@@ -376,7 +376,7 @@ a {
 
 /* contact section  */
 .footer {
-  background: url("./images/pattern.png"),
+  background: url("../images/pattern.png"),
     linear-gradient(rgb(5, 5, 5), #212121);
   height: max-content;
   padding: 5%;

@@ -3,28 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Kumar+One+Outline&display=swap"
-    />
-
     <title>Portfolio</title>
   </head>
 
   <body>
     <div class="dropdown">
-      <p><a href="./pages/design.html">Web Design</a></p>
-      <p><a href="./pages/dev.html">Web Development</a></p>
-      <p><a href="./pages/illustration.html">Book Illustration</a></p>
+      <p><a href="./pages/design">Web Design</a></p>
+      <p><a href="./pages/dev">Web Development</a></p>
+      <p><a href="./pages/illustration">Book Illustration</a></p>
     </div>
     <div class="home">
       <div class="navbar fadein">
@@ -83,30 +74,26 @@
     <div class="projects background1">
       <div class="text">
         <span class="number number1">1</span>
-        <p class="web-design">
+        <p class="projects-text-title">
           <span>Web</span>
           <span>Design.</span>
         </p>
         <p class="tools-container">
-          <!-- <% for (let i = 0; i < tools.length; i++) { %> -->
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <!-- <% } %> -->
+          <%for(let i=0; i<=4; i++){%>
+          <span class="tools"><%= designTools[i] %></span>
+          <%}%> ...
         </p>
         <p>
-          <button class="view-work"><a href="./pages/design.html">View Work</a></button>
+          <button class="view-work">
+            <a href="./pages/design">View Work</a>
+          </button>
         </p>
       </div>
       <div class="display">
         <div class="img-container">
-          <!-- <% for (let i = 0; i < images.length; i++) { %> -->
-          <img class="img" src="./images/image1.jpg" />
-          <img class="img" src="./images/image2.png" />
-          <img class="img" src="./images/image3.png" />
-          <!-- <% } %> -->
+          <%designs.forEach((item)=>{%>
+          <img class="img" src="<%= item.image %>" />
+          <%})%>
         </div>
       </div>
     </div>
@@ -115,30 +102,26 @@
     <div class="projects background2">
       <div class="display2">
         <div class="img-container">
-          <!-- <% for (let i = 0; i < images.length; i++) { %> -->
-          <img class="img" src="./images/image1.jpg" />
-          <img class="img" src="./images/image2.png" />
-          <img class="img" src="./images/image3.png" />
-          <!-- <% } %> -->
+          <%websites.forEach((item)=>{%>
+          <img class="img" src="<%= item.image %>" />
+          <%})%>
         </div>
       </div>
       <div class="text2">
         <span class="number number2">2</span>
-        <p class="web-design">
+        <p class="projects-text-title">
           <span>Web</span>
           <span>Dev.</span>
         </p>
         <p class="tools-container">
-          <!-- <% for (let i = 0; i < tools.length; i++) { %> -->
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <!-- <% } %> -->
+          <%for(let i=0; i<=4; i++){%>
+          <span class="tools"><%= websiteTools[i] %></span>
+          <%}%> ...
         </p>
         <p>
-          <button class="view-work"><a href="./pages/dev.html">View Work</a></button>
+          <button class="view-work">
+            <a href="./pages/dev">View Work</a>
+          </button>
         </p>
       </div>
     </div>
@@ -147,30 +130,26 @@
     <div class="projects background3">
       <div class="text">
         <span class="number number3">3</span>
-        <p class="web-design">
+        <p class="projects-text-title">
           <span>Book</span>
           <span>Illustration</span>
         </p>
         <p class="tools-container">
-          <!-- <% for (let i = 0; i < tools.length; i++) { %> -->
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <span class="tools">tools</span>
-          <!-- <% } %> -->
+          <%for(let i=0; i<=4; i++){%>
+          <span class="tools"><%= illustrationTools[i] %></span>
+          <%}%> ...
         </p>
         <p>
-          <button class="view-work"><a href="./pages/illustration.html">View Work</a></button>
+          <button class="view-work">
+            <a href="./pages/illustration">View Work</a>
+          </button>
         </p>
       </div>
       <div class="display">
         <div class="img-container">
-          <!-- <% for (let i = 0; i < images.length; i++) { %> -->
-          <img class="img" src="./images/image1.jpg" />
-          <img class="img" src="./images/image2.png" />
-          <img class="img" src="./images/image3.png" />
-          <!-- <% } %> -->
+          <%illustrations.forEach((item)=>{%>
+          <img class="img" src="<%= item.image %>" />
+          <%})%>
         </div>
       </div>
     </div>
@@ -217,10 +196,10 @@
         </div>
       </div>
       <div class="top-button">TOP⬆️</div>
-      <div class="input-button"><a href="./pages/post.html">.</a></div>
+      <div class="input-button"><a href="./pages/post">.</a></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script  src="script.js"></script>
+    <script src="/scripts/script.js"></script>
   </body>
 </html>
