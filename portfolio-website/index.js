@@ -4,7 +4,7 @@ import { readFile, writeFile } from 'fs/promises';
 import multer from "multer";
 
 const app = express();
-const port = 8000 || process.env.PORT;
+const port = 3000 || process.env.PORT;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
