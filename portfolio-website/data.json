@@ -17,7 +17,7 @@
     "website": [
       {
         "title": "Weather Application",
-        "productURL": "weather-application-a80q.onrender.com",
+        "productURL": "https://weather-application-a80q.onrender.com",
         "description": "Forecasts weather for any given city for upto 5 days.",
         "tools": [
           "Html",
