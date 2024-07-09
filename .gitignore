@@ -1,0 +1,24 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# React
+build/
+dist/
+
+# Environment variables
+.env
+
+# Editor configuration
+.vscode/
+*.swp
+*.swo
+*.swn
+*.swm
+*.bak
+*.tmp
+*.sublime-workspace
+
+# OS-generated files
+.DS_Store
+Thumbs.db
