@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  width: 100vw;
+  overflow-x: hidden;
+  display: flex;
+}
+
+/* password section */
+.password {
+  border: black 1px solid;
+  padding: 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.password p {
+  margin: 0px;
+  padding-bottom: 10px;
+}
+
+.password input {
+  border: grey 1px solid;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  outline: none;
+}
+
+.password button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: none;
+  padding: 5px;
+}
+
+/* content section */
+.box {
+  border: grey solid 1px;
+  border-radius: 20px;
+  margin: 30px;
+  padding: 20px 40px;
+}
+
+.add-content{
+    flex: 1;
+}
+
+.add-tools{
+    flex: 0.5;
+}
+
+h3 {
+  margin: 0px;
+  padding-bottom: 10px;
+  text-decoration: underline;
+}
+
+span {
+  display: block;
+  font-weight: bold;
+}
+
+/* .description{
+    width: 500px;
+    overflow-wrap: break-word;
+} */
+
+.image-preview{
+  height: 100px;
+  width: 100px;
+}
+
+.tools-container label{
+  margin-right: 10px;
+}

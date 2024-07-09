@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Portfolio</title>
+  </head>
+
+  <body>
+    <div class="dropdown">
+      <p><a href="./pages/design">Web Design</a></p>
+      <p><a href="./pages/dev">Web Development</a></p>
+      <p><a href="./pages/illustration">Book Illustration</a></p>
+    </div>
+    <div class="home">
+      <div class="navbar fadein">
+        <button class="projects-button">Projects</button>
+        <button class="contact-button">Contact</button>
+        <button class="about-button">About</button>
+      </div>
+      <div class="content">
+        <div class="name">
+          <div class="slide-right">
+            <p>ANUSREE</p>
+            <p>ANILKUMAR</p>
+          </div>
+        </div>
+        <div class="roles">
+          <div class="slide-left">
+            <p>DESIGNER</p>
+            <p>DEVELOPER</p>
+            <p>ILLUSTRATOR</p>
+          </div>
+        </div>
+      </div>
+      <div class="social-media">
+        <a href="https://github.com/Anusree6154s">
+          <i class="fab fa-github fadein"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/anusree-anilkumar-6154s/">
+          <i class="fab fa-linkedin fadein"></i>
+        </a>
+        <a href="https://www.behance.net/curiousdesigns24">
+          <i class="fab fa-behance fadein"></i>
+        </a>
+        <a
+          href="https://mail.google.com/mail/?view=cm&to=secretadmirer2411994@gmail.com"
+        >
+          <i class="far fa-envelope fadein"></i>
+        </a>
+        <a href="https://wa.me/919699973230">
+          <i class="fab fa-whatsapp fadein"></i>
+        </a>
+      </div>
+    </div>
+
+    <p class="projects-title">
+      <span>P</span>
+      <span>R</span>
+      <span>O</span>
+      <span>J</span>
+      <span>E</span>
+      <span>C</span>
+      <span>T</span>
+      <span>S </span>
+    </p>
+
+    <!-- projects1 -->
+    <div class="projects background1">
+      <div class="text">
+        <span class="number number1">1</span>
+        <p class="projects-text-title">
+          <span>Web</span>
+          <span>Design.</span>
+        </p>
+        <p class="tools-container">
+          <%for(let i=0; i<=4; i++){%>
+          <span class="tools"><%= designTools[i] %></span>
+          <%}%> ...
+        </p>
+        <p>
+          <button class="view-work">
+            <a href="./pages/design">View Work</a>
+          </button>
+        </p>
+      </div>
+      <div class="display">
+        <div class="img-container">
+          <%designs.forEach((item)=>{%>
+          <img class="img" src="<%= item.image %>" />
+          <%})%>
+        </div>
+      </div>
+    </div>
+
+    <!-- projects2 -->
+    <div class="projects background2">
+      <div class="display2">
+        <div class="img-container">
+          <%websites.forEach((item)=>{%>
+          <img class="img" src="<%= item.image %>" />
+          <%})%>
+        </div>
+      </div>
+      <div class="text2">
+        <span class="number number2">2</span>
+        <p class="projects-text-title">
+          <span>Web</span>
+          <span>Dev.</span>
+        </p>
+        <p class="tools-container">
+          <%for(let i=0; i<=4; i++){%>
+          <span class="tools"><%= websiteTools[i] %></span>
+          <%}%> ...
+        </p>
+        <p>
+          <button class="view-work">
+            <a href="./pages/dev">View Work</a>
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <!-- projects3 -->
+    <div class="projects background3">
+      <div class="text">
+        <span class="number number3">3</span>
+        <p class="projects-text-title">
+          <span>Book</span>
+          <span>Illustration</span>
+        </p>
+        <p class="tools-container">
+          <%for(let i=0; i<=4; i++){%>
+          <span class="tools"><%= illustrationTools[i] %></span>
+          <%}%> ...
+        </p>
+        <p>
+          <button class="view-work">
+            <a href="./pages/illustration">View Work</a>
+          </button>
+        </p>
+      </div>
+      <div class="display">
+        <div class="img-container">
+          <%illustrations.forEach((item)=>{%>
+          <img class="img" src="<%= item.image %>" />
+          <%})%>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-inner">
+        <div class="contact">
+          <p class="heading">Contact</p>
+          <p>
+            Get in touch for work or collaboration!
+            <span>
+              <a href="https://www.linkedin.com/in/anusree-anilkumar-6154s/">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&to=secretadmirer2411994@gmail.com"
+              >
+                <i class="far fa-envelope"></i>
+              </a>
+              <a href="https://wa.me/919699973230">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </span>
+          </p>
+          <p>
+            Support ❤️
+            <span>
+              <a href="https://www.behance.net/curiousdesigns24">
+                <i class="fab fa-behance"></i>
+              </a>
+              <a href="https://www.instagram.com/instantdoodles2/">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </span>
+          </p>
+        </div>
+        <div class="about">
+          <p class="heading">About</p>
+          <p>
+            I'm a web development student from Surat, Gujarat, India. I work
+            mainly on MERN stack and does web design and book illustration as a
+            hobby.
+          </p>
+        </div>
+      </div>
+      <div class="top-button">TOP⬆️</div>
+      <div class="input-button"><a href="./pages/post">.</a></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/scripts/script.js"></script>
+  </body>
+</html>

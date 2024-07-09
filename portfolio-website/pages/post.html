@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/post.css" />
+    <title>Post Content</title>
+  </head>
+  <body>
+    <!-- <div class="password"> 
+        <p>Password</p>
+        <input type="text" placeholder="Hint: clock" class="password-input">
+        <button class="password-button">Check</button>
+    </div> -->
+
+    <div class="add-content box">
+      <h3>Add Content</h3>
+      <form action="/addcontent" method="post" enctype="multipart/form-data">
+        <span>
+          Category
+          <select class="content-category" name="content-category">
+            <option value="Design">Design</option>
+            <option value="Dev">Dev</option>
+            <option value="Illustration">Illustration</option>
+          </select>
+        </span>
+        <br />
+        <span>Title <input type="text" class="title-input" name="content-title"/></span>
+        <br />
+        <span>Final Product Url <input type="text" class="product-input" name="content-product"/></span>
+        <br />
+        <span>Description </span>
+        <textarea name="content-description" id="" cols="30" rows="10"></textarea>
+        <br /><br />
+        <span>Image <input type="file" class="image-input" name="content-image"/></span>
+        <img class="image-preview" name="content-image-preview"/>
+        <br /><br />
+        <span>Tools</span>
+        <div class="tools-container"></div>
+        <br /><br />
+        <button type="submit" class="content-button">Add</button>
+      </form>
+    </div>
+
+    <div class="add-tools box">
+      <h3>Add New Tools</h3>
+      <form action="/addtool" method="post">
+        <span>
+          Category
+          <select class="tools-category" name="tools-category">
+            <option value="Design">Design</option>
+            <option value="Dev">Dev</option>
+            <option value="Illustration">Illustration</option>
+          </select>
+        </span>
+        <br />
+        <input type="text" class="tools-input" name="tools-input" />
+        <br /><br />
+        <button type="submit" class="tools-button">Add</button>
+      </form>
+    </div>
+    <script type="module" src="/scripts/post.js"></script>
+  </body>
+</html>
