@@ -7,29 +7,315 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../styles/design.css" />
+    <link rel="icon" href="../images/favicon.png" type="image/png" />
     <title>Web Design</title>
   </head>
   <body>
-    <div class="title title-background1">
-      <p>
-        WEB <br />
-        DESIGN
-      </p>
-    </div>
+    <header class="header">
+      <div class="header-inner">
+        <a href="../index.html" class="header-home-link"
+          ><img
+            src="../images/Untitled-removebg-preview.png"
+            alt=""
+            class="header-home-image"
+            href="../index.html"
+        /></a>
+        <p class="header-title">WEB DESIGN</p>
+        <span class="header-navbar">
+          <div class="header-projects">
+            <span class="header-projects-title">Projects</span>
+            <div class="header-projects-dropdown hide">
+              <a href="./dev.html">Web Dev</a>
+              <a href="./design.html">Web Design</a>
+              <a href="./illustration.html">Illustration</a>
+            </div>
+          </div>
+          <i class="fas fa-moon theme"></i>
+        </span>
+      </div>
+    </header>
 
-    <div class="content">
-      <div class="card">
-        <img src="../images/home/3-web-design/image1.png" alt="">
-        <div class="text">
-          <h1>Title</h1>
-          <p>description</p>
-          <p><span>tool</span></p>
-          <button>View Design</button>
+    <div class="featured">
+      <div class="featured-inner">
+        <p class="featured-title">FEATURED</p>
+        <div class="featured-content">
+          <div class="featured-carousel">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active " id="item-1">
+                  <img
+                    src="../images/designs/image1.png"
+                    class="d-block w-100 "
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100" id="item-2">
+                  <img
+                    src="../images/designs/image2.png"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100" id="item-3">
+                  <img
+                    src="../images/designs/image3.png"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="featured-text item-1 hide">
+            <span class="featured-text-heading"
+              >Imagico - A Social Media App
+            </span>
+            <span class="featured-text-description"
+              >
+              Features:
+              <ul>
+                <li>Home Page: Header with navigation, main feed with profile name, image and description</li>
+                <li>Profile Page: Profile image, desciption, followers list, posts and bookmarks</li>
+                <li>Navigation sidebar with links</li>
+              </ul></span
+            >
+            <span class="featured-text-tools">
+              <span>Figma</span>
+              <span>Canva</span>
+            </span>
+            <button class="featured-view-button">View Design</button>
+          </div>
+          <div class="featured-text item-2 hide">
+            <span class="featured-text-heading"
+              >HeadingHeadingHeading
+            </span>
+            <span class="featured-text-description"
+              >DescriptionDescription</span
+            >
+            <span class="featured-text-tools">
+            
+              <span>tools</span>
+              <span>tools</span>
+              <span>tools</span>
+              <span>tools</span>
+              <span>tools</span>
+              <span>tools</span>
+            </span>
+            <button class="featured-view-button">View Design</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <script src="/scripts/design.js"></script>
+    <div class="content">
+      <div class="content-inner">
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/designs/image1.png"
+              alt=""
+            />
+            <div class="content-card-text">
+              <span class="content-card-text-title">Title Title Title</span>
+              <span class="content-card-text-description"
+                >description description description description description
+                description description description description description
+                description
+              </span>
+              <span class="content-card-text-tools">
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+              </span>
+              <!-- <button class="card-text-button">View Design</button> -->
+            </div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/designs/image2.png"
+              alt=""
+            />
+            <div class="content-card-text">
+              <span class="content-card-text-title">Title Title Title</span>
+              <span class="content-card-text-description"
+                >description description description description description
+                description description description description description
+                description
+              </span>
+              <span class="content-card-text-tools">
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+              </span>
+              <!-- <button class="card-text-button">View Design</button> -->
+            </div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/designs/image3.png"
+              alt=""
+            />
+            <div class="content-card-text">
+              <span class="content-card-text-title">Title Title Title</span>
+              <span class="content-card-text-description"
+                >description description description description description
+                description description description description description
+                description description description description description
+                description</span
+              >
+              <span class="content-card-text-tools">
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+              </span>
+              <!-- <button class="card-text-button">View Design</button> -->
+            </div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/designs/image4.png"
+              alt=""
+            />
+            <div class="content-card-text">
+              <span class="content-card-text-title">Title Title Title</span>
+              <span class="content-card-text-description"
+                >description description description description description
+                description description description description description
+                description
+              </span>
+              <span class="content-card-text-tools">
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+              </span>
+              <!-- <button class="card-text-button">View Design</button> -->
+            </div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/designs/image5.png"
+              alt=""
+            />
+            <div class="content-card-text">
+              <span class="content-card-text-title">Title Title Title</span>
+              <span class="content-card-text-description"
+                >description description description description description
+                description description description description description
+                description
+              </span>
+              <span class="content-card-text-tools">
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+                <span>tool</span>
+              </span>
+              <!-- <button class="card-text-button">View Design</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <script src="../scripts/design.js" ></script>
   </body>
 </html>

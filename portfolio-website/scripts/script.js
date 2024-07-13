@@ -10,12 +10,12 @@ document.querySelector('.about-button').addEventListener('click', function () {
     });
 });
 
-document.querySelector('.top-button').addEventListener('click', function () {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+// document.querySelector('.top-button').addEventListener('click', function () {
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     });
+// });
 
 const projectsButton = document.querySelector('.projects-button')
 const dropdown = document.querySelector('.dropdown')
