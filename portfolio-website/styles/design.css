@@ -220,7 +220,7 @@ body::-webkit-scrollbar-thumb {
   width: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, 2fr);
+  /* grid-template-rows: repeat(auto-fill, 2fr); */
 }
 
 .content-card {
