@@ -178,11 +178,11 @@ body::-webkit-scrollbar-thumb {
 
 
 .featured-text-description ul{
-  padding: 5%;
+  padding-left: 5%;
 }
 
 .featured-text-tools {
-  padding: 5%;
+  padding-left: 5%;
 }
 .featured-text-tools span {
   border: solid 1px white;
