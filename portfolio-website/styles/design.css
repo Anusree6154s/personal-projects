@@ -179,6 +179,7 @@ body::-webkit-scrollbar-thumb {
 
 .featured-text-description ul{
   padding-left: 5%;
+  margin: 0px;
 }
 
 .featured-text-tools {
@@ -188,7 +189,7 @@ body::-webkit-scrollbar-thumb {
   border: solid 1px white;
   border-radius: 50px;
   padding: 2px 5px;
-  font-size: 1.5vh;
+  font-size:90%;
   margin-bottom: 1vh;
   display: inline-block;
 }
