@@ -161,7 +161,6 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* padding: 2vh; */
   box-sizing: border-box;
   font-size: 70%;
 }
@@ -177,6 +176,14 @@ body::-webkit-scrollbar-thumb {
   word-wrap: break-word;
 }
 
+
+.featured-text-description ul{
+  padding: 5%;
+}
+
+.featured-text-tools {
+  padding: 5%;
+}
 .featured-text-tools span {
   border: solid 1px white;
   border-radius: 50px;
@@ -224,7 +231,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-card {
-  padding: 10% 5%;
+  padding:  5%;
   /* flex-basis: 600px; */
 }
 
