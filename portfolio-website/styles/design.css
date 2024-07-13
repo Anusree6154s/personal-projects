@@ -259,7 +259,10 @@ body::-webkit-scrollbar-thumb {
   font-weight: bold;
 }
 
-.content-card-text-description,
+.content-card-text-description {
+  font-size: 70%;
+}
+
 .content-card-text-tools {
   font-size: 70%;
   text-align: center;
