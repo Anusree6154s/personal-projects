@@ -225,7 +225,7 @@ body::-webkit-scrollbar-thumb {
 
 .content-card {
   padding: 10% 5%;
-  height: 600px;
+  /* flex-basis: 600px; */
 }
 
 .content-card:hover {
@@ -235,16 +235,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-card-inner {
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  gap: 4%;
+  /* gap: 10%; */
 }
 
 .content-card-image {
   flex: 1;
   width: 100%;
   object-fit: cover;
+  margin-bottom: 5%;
 }
 
 .content-card-text {
@@ -258,15 +259,17 @@ body::-webkit-scrollbar-thumb {
 
 .content-card-text-title {
   font-weight: bold;
+  margin-bottom: 5%;
 }
 
 .content-card-text-description {
   font-size: 70%;
+  /* margin-bottom: 5%; */
 }
 
-.content-card-text-description ul{
+/* .content-card-text-description ul{
   margin: 0px;
-}
+} */
 
 .content-card-text-tools {
   font-size: 70%;
