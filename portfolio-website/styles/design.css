@@ -3,11 +3,15 @@
 } */
 
 :root {
-  --dark-orangered: rgb(166, 46, 3);
+  --dark-orangered-0: rgb(131, 36, 2);
+  --dark-orangered-1: rgb(166, 46, 3);
+  --dark-orangered-2: rgb(211, 56, 0);
   --gray1: rgb(30, 30, 30);
   --gray2: rgb(35, 35, 35);
   --gray3: rgb(50, 50, 50);
   --gray3-1: rgb(50, 50, 50, 0.7);
+  --gray-4: gray;
+  --gray-5: rgb(193, 193, 193);
 }
 
 body {
@@ -55,15 +59,17 @@ body::-webkit-scrollbar-thumb {
   font-weight: bold;
   margin: 0px;
   /* border: solid 2px white; */
-  margin-left: 5%;
+  margin-left: 7%;
 }
 
 .header-home-link {
-  height: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .header-home-image {
-  height: 100%;
+  height: 30%;
 }
 
 .header-projects {
@@ -85,7 +91,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   justify-content: space-between;
   width: max-content;
-  height: 400%;
+  height: 450%;
   padding: 20%;
   background-color: var(--gray3);
 }
@@ -99,13 +105,15 @@ body::-webkit-scrollbar-thumb {
   text-decoration: none;
 }
 
+.header-projects-dropdown a:hover {
+  color: var(--gray-4);
+}
+
 .header-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 15%; */
-  width: 10%;
-  /* border: 2px red solid; */
+  width: 12%;
 }
 
 .theme {
@@ -114,8 +122,35 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5px;
 }
 
+.contact-banner {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  padding-left: 2%;
+}
+
+.contact-banner a {
+  margin-bottom: 90%;
+  background-color: var(--gray-4);
+  padding: 20%;
+  border-radius: 20px;
+  width: 180%;
+  text-align: center;
+}
+
+.contact-banner a:hover {
+  background-color: var(--gray-5);
+}
+
+.contact-banner i {
+  color: black;
+}
+
 .featured {
-  background: url("../images/pattern_diamonds-9_1_2_0-0_0_1__ffffff00_2e2e2e.png");
+  background: url("../images/commons/background/pattern_diamonds.png");
   background-color: black;
   height: 90vh;
   display: flex;
@@ -124,7 +159,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .featured-inner {
-  background-color: var(--dark-orangered);
+  background-color: var(--dark-orangered-1);
   height: 60vh;
   width: 60vw;
   display: flex;
@@ -176,8 +211,7 @@ body::-webkit-scrollbar-thumb {
   word-wrap: break-word;
 }
 
-
-.featured-text-description ul{
+.featured-text-description ul {
   padding-left: 5%;
   margin: 0px;
 }
@@ -189,18 +223,44 @@ body::-webkit-scrollbar-thumb {
   border: solid 1px white;
   border-radius: 50px;
   padding: 2px 5px;
-  font-size:90%;
+  font-size: 90%;
   margin-bottom: 1vh;
   display: inline-block;
 }
 
-.featured-view-button {
+.featured-button-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 4%;
+}
+
+.featured-button-section a {
+  flex: 1;
+}
+
+.featured-button {
+  width: 100%;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
   background-color: yellow;
   border: none;
   padding: 2vh;
   color: black;
-  font-weight: bold;
-  font-family: "Montserrat", sans-serif;
+}
+
+.featured-button-section .button-1:hover {
+  background-color: gold;
+}
+
+.featured-button-section .button-2:hover {
+  background-color: var(--dark-orangered-0);
+}
+
+.featured-button-section .button-2 {
+  background-color: transparent;
+  border: yellow solid 2px;
+  color: yellow;
 }
 
 .carousel,
@@ -212,7 +272,6 @@ body::-webkit-scrollbar-thumb {
 
 .carousel-item img {
   object-fit: cover;
-  /* width: 100%; */
   height: 100%;
 }
 
@@ -232,21 +291,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 .content-card {
-  padding:  5%;
-  /* flex-basis: 600px; */
+  padding: 5%;
+  /* color: white;
+  text-decoration: none; */
 }
 
 .content-card:hover {
   background-color: var(--gray3);
-  cursor: pointer;
+  /* cursor: pointer; */
   box-shadow: 0px 5px 5px 2px var(--gray1);
 }
 
 .content-card-inner {
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  /* gap: 10%; */
+  position: relative;
 }
 
 .content-card-image {
@@ -254,6 +313,24 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   object-fit: cover;
   margin-bottom: 5%;
+}
+
+.content-card-links {
+  width: 100%;
+  text-align: center;
+  margin: 1% 0% 5% 0%;
+}
+
+.content-card-links a {
+  padding: 2% 3%;
+  margin: 0% 3%;
+  border-radius: 15px;
+  background-color: gold;
+  color: black;
+}
+
+.content-card-links a:hover {
+  background-color: goldenrod;
 }
 
 .content-card-text {
@@ -275,9 +352,10 @@ body::-webkit-scrollbar-thumb {
   /* margin-bottom: 5%; */
 }
 
-/* .content-card-text-description ul{
-  margin: 0px;
-} */
+.content-card-text-description li {
+  margin-bottom: 2%;
+  /* margin: 0px; */
+}
 
 .content-card-text-tools {
   font-size: 70%;

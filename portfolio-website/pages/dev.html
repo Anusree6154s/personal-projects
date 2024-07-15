@@ -7,16 +7,386 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="../styles/design.css" />
-    <title>Web Development</title>
+    <link
+      rel="icon"
+      href="../images/commons/logos/favicon.png"
+      type="image/png"
+    />
+    <title>Web Dev</title>
   </head>
   <body>
-    <div class="title title-background2">
-      <p><span class="first-word">WEB</span> <br />DEVELOPMENT</p>
+    <header class="header">
+      <div class="header-inner">
+        <a href="../index.html" class="header-home-link"
+          ><img
+            src="../images/commons/logos/logo.png"
+            alt=""
+            class="header-home-image"
+            href="../index.html"
+        /></a>
+        <p class="header-title">WEB DEV</p>
+        <span class="header-navbar">
+          <div class="header-projects">
+            <span class="header-projects-title">Projects</span>
+            <div class="header-projects-dropdown hide">
+              <a href="./dev.html">Web Dev</a>
+              <a href="./design.html">Web Design</a>
+              <a href="./illustration.html">Illustration</a>
+            </div>
+          </div>
+          <i class="fas fa-moon theme"></i>
+        </span>
+      </div>
+    </header>
+
+    <div class="contact-banner">
+      <a href="https://github.com/Anusree6154s">
+        <i class="fab fa-github fadein"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/anusree-anilkumar-6154s/">
+        <i class="fab fa-linkedin fadein"></i>
+      </a>
+      <a href="https://www.behance.net/curiousdesigns24">
+        <i class="fab fa-behance fadein"></i>
+      </a>
+      <a
+        href="https://mail.google.com/mail/?view=cm&to=secretadmirer2411994@gmail.com"
+      >
+        <i class="far fa-envelope fadein"></i>
+      </a>
+      <a href="https://wa.me/919699973230">
+        <i class="fab fa-whatsapp fadein"></i>
+      </a>
     </div>
 
-    <div class="content"></div>
+    <div class="featured">
+      <div class="featured-inner">
+        <p class="featured-title">FEATURED</p>
+        <div class="featured-content">
+          <div class="featured-carousel">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active" id="item-1">
+                  <img
+                    src="../images/dev/image1.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100" id="item-2">
+                  <img
+                    src="../images/dev/image2.png"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item h-100" id="item-3">
+                  <img
+                    src="../images/dev/image3.png"
+                    class="d-block w-100 h-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="featured-text item-1 hide">
+            <span class="featured-text-heading">Netflix CLone </span>
+            <span class="featured-text-description">
+              <ul>
+                <li>
+                  <strong>Hero Section:</strong>
+                  Displays a featured image with play, add to list, and trailer
+                  buttons.
+                </li>
+                <li>
+                  <strong>Content Sections:</strong>
+                  Organized categories like "Netflix Originals," "Wishlist,"
+                  "Trending Now," "Top Rated," "New Releases," and "Top
+                  Searches" with visually appealing thumbnails.
+                </li>
+              </ul>
+            </span>
+            <span class="featured-text-tools">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </span>
+            <div class="featured-button-section">
+              <a href="https://netflix-clone-2fwt.onrender.com/">
+                <button class="featured-button button-1">Website</button>
+              </a>
+              <a
+                href="https://github.com/Anusree6154s/mern_stack-clever_programmer/tree/main/Intro%20to%20JS%20and%20Exercises/projects/create-netflix/exercise"
+              >
+                <button class="featured-button button-2">Github</button>
+              </a>
+            </div>
+          </div>
+          <div class="featured-text item-2 hide">
+            <span class="featured-text-heading"
+              >Weather Poppy - Weather Forecast
+            </span>
+            <span class="featured-text-description">
+              <ul>
+                <li>
+                  <strong>Location and Date:</strong> Users input city, country,
+                  and select a date up to 5 days ahead for the forecast.
+                </li>
+                <li>
+                  <strong> Weather Info:</strong> Displays temperature,
+                  conditions, cloud coverage, and wind speed.
+                </li>
+              </ul>
+            </span>
+            <span class="featured-text-tools">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>REST API</span>
+            </span>
+            <div class="featured-button-section">
+              <a href="https://weather-application-a80q.onrender.com/submit">
+                <button class="featured-button button-1">Website</button>
+              </a>
+              <a
+                href="https://github.com/Anusree6154s/full_stack-udemy/tree/main/Backend/05.7%20Weather%20App%20-%20Capstone%20Project"
+              >
+                <button class="featured-button button-2">Github</button>
+              </a>
+            </div>
+          </div>
+          <div class="featured-text item-3 hide">
+            <span class="featured-text-heading"
+              >Ebazar - Ecommerce Website</span
+            >
+            <span class="featured-text-description">
+              <ul>
+                <li>
+                  <strong>User Features:</strong> Secure authentication,
+                  password reset, dark/light modes, product browsing, filtering,
+                  sorting, pagination, wish list, cart management, Stripe
+                  payments, order tracking, profile updates.
+                </li>
+                <li>
+                  <strong>Admin Features: </strong>Product management, user
+                  order management, admin profile editing.
+                </li>
+              </ul>
+            </span>
+            <span class="featured-text-tools">
+              <span>React.js</span>
+              <span>MongoDB</span>
+              <span>Redux Toolkit</span>
+            </span>
+            <div class="featured-button-section">
+              <a href="https://ebazar-ecommerce-website.onrender.com/">
+                <button class="featured-button button-1">Website</button>
+              </a>
+              <a
+                href="https://github.com/Anusree6154s/mern_stack-coder_dost/tree/main/3.%20React-Redux%20-%20Ecommerce%20Project%20-%20Ebazar"
+              >
+                <button class="featured-button button-2">Github</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <script src="/scripts/dev.js"></script>
+    <div class="content">
+      <div class="content-inner">
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/dev/image1.png"
+              alt=""
+            />
+            <div class="content-card-links">
+              <a href="https://netflix-clone-2fwt.onrender.com/"
+                ><i class="fas fa-globe icon"></i
+              ></a>
+              <a
+                href="https://github.com/Anusree6154s/mern_stack-clever_programmer/tree/main/Intro%20to%20JS%20and%20Exercises/projects/create-netflix/exercise"
+                ><i class="fab fa-github icon"></i
+              ></a>
+            </div>
+            <div class="content-card-text">
+              <span class="content-card-text-title"> Netflix CLone </span>
+              <span class="content-card-text-description">
+                <ul>
+                  <li>
+                    <strong>Hero Section:</strong>
+                    Displays a featured image with play, add to list, and
+                    trailer buttons.
+                  </li>
+                  <li>
+                    <strong>Content Sections:</strong>
+                    Organized categories like "Netflix Originals," "Wishlist,"
+                    "Trending Now," "Top Rated," "New Releases," and "Top
+                    Searches" with visually appealing thumbnails.
+                  </li>
+                </ul>
+              </span>
+              <span class="content-card-text-tools">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/dev/image2.png"
+              alt=""
+            />
+            <div class="content-card-links">
+              <a href="https://weather-application-a80q.onrender.com/submit"
+                ><i class="fas fa-globe icon"></i
+              ></a>
+              <a
+                href="https://github.com/Anusree6154s/full_stack-udemy/tree/main/Backend/05.7%20Weather%20App%20-%20Capstone%20Project"
+                ><i class="fab fa-github icon"></i
+              ></a>
+            </div>
+            <div class="content-card-text">
+              <span class="content-card-text-title"
+                >Weather Poppy - Weather Forecast</span
+              >
+              <span class="content-card-text-description">
+                <ul>
+                  <li>
+                    <strong>City and Country Selection:</strong> Users can input
+                    the city and country for which they want to check the
+                    weather.
+                  </li>
+                  <li>
+                    <strong>Date Selection:</strong> Users can select a date up
+                    to 5 days in advance to get the weather forecast. Weather
+                  </li>
+                  <li>
+                    <strong>Details:</strong> Displays temperature in Celsius,
+                    weather condition (e.g., clear sky), cloud coverage
+                    percentage, wind speed in meters per second, etc.
+                  </li>
+                </ul>
+              </span>
+              <span class="content-card-text-tools">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>REST API</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="content-card-inner">
+            <img
+              class="content-card-image"
+              src="../images/dev/image3.png"
+              alt=""
+            />
+            <div class="content-card-links">
+              <a href="https://ebazar-ecommerce-website.onrender.com/"
+                ><i class="fas fa-globe icon"></i
+              ></a>
+              <a
+                href="https://github.com/Anusree6154s/mern_stack-coder_dost/tree/main/3.%20React-Redux%20-%20Ecommerce%20Project%20-%20Ebazar"
+                ><i class="fab fa-github icon"></i
+              ></a>
+            </div>
+            <div class="content-card-text">
+              <span class="content-card-text-title"
+                >Ebazar - Ecommerce Website</span
+              >
+              <span class="content-card-text-description">
+                <ul>
+                  <li>
+                    <strong>Features: </strong>Secure authentication with Bcrypt
+                    and JWT, password reset via Nodemailer, dark and light modes
+                    for UI customization.
+                  </li>
+                  <li>
+                    <strong>User Interaction:</strong> Product browsing,
+                    filtering, and sorting with pagination, product details,
+                    wish list, and cart management, secure Stripe payments,
+                    order tracking, profile updates.
+                  </li>
+                  <li>
+                    <strong>Admin Section:</strong> Product management with
+                    pagination, sorting, and filtering, product detail previews,
+                    user order management, admin profile editing.
+                  </li>
+                </ul></span
+              >
+              <span class="content-card-text-tools">
+                <span>React.js</span>
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>MongoDB</span>
+                <span>Mongoose</span>
+                <span>Tailwind</span>
+                <span>Redux Toolkit</span>
+                <span>Bcrypt</span>
+                <span>JWT</span>
+                <span>Nodemailer</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../scripts/design.js"></script>
   </body>
 </html>
