@@ -1,4 +1,4 @@
-const status = require('http-status')
+const httpStatus = require('http-status');
 
 
 /**
@@ -13,15 +13,10 @@ const status = require('http-status')
  * @param {string} [stack=""] - The stack trace of the error. If not provided, it is captured automatically.
  */
 class ApiError extends Error {
-    constructor(
-        statusCode,
-        message,
-        isOperational = true,
-        stack = ""
-    ) {
-        let msg = message || status[this.statusCode] || 'Internal Server Error'
+    constructor(status, message, isOperational = true, stack = "") {
+        let msg = message || httpStatus[status] || 'Internal Server Error'
         super(msg);
-        this.statusCode = statusCode || status[this.message] || 500;
+        this.statusCode = status || httpStatus[message] || 500;
         this.isOperational = isOperational;
         if (stack) {
             this.stack = stack;
@@ -31,4 +26,4 @@ class ApiError extends Error {
     }
 }
 
-module.exports = {ApiError};
+module.exports = { ApiError };

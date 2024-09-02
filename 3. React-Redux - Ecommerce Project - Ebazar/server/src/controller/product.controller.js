@@ -49,7 +49,6 @@ exports.fetchAllQuery = catchAsyncUtil.catchAsync(async (req, res) => {
     } else if (req.query.role === 'admin') {
         productQuery = Product.find();
     }
-
     if (req.query._sort && req.query._order) {
         productQuery = productQuery.sort({ [req.query._sort]: req.query._order });
     }

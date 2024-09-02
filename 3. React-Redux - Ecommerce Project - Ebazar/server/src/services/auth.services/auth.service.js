@@ -70,6 +70,6 @@ const createUser = async (rest, password, salt) => {
   }
 }
 
-module.exports.authService = {
+module.exports = {
   sendEmail, createUser
 }

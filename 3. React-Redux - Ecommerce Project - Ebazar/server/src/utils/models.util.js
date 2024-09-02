@@ -20,4 +20,4 @@ function createVirtualID(schema) {
     });
 }
 
-module.exports = {createVirtualID}
+module.exports = { createVirtualID }

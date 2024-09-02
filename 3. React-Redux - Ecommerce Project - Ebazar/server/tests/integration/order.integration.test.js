@@ -73,7 +73,7 @@ describe("Order routes", () => {
                 .send(orderClone);
 
             expect(res.status).toBe(httpStatus.BAD_REQUEST); // Adjust based on your validation
-            expect(res.body).toHaveProperty('error');
+            expect(res.body.message).toBe('Order details missing');
         });
     });
 
@@ -118,7 +118,7 @@ describe("Order routes", () => {
                 .query({}); // No user ID provided
 
             expect(res.status).toBe(httpStatus.BAD_REQUEST);
-            expect(res.body).toHaveProperty('error');
+            expect(res.body.message).toBe('User ID is required');
         });
     });
 
@@ -157,7 +157,7 @@ describe("Order routes", () => {
                 .send();
 
             expect(res.status).toBe(httpStatus.NOT_FOUND);
-            expect(res.body).toHaveProperty('error', 'Order not found');
+            expect(res.body.message).toBe('Order not found');
         });
 
         test('should return 400 if the ID format is invalid', async () => {
@@ -213,7 +213,7 @@ describe("Order routes", () => {
                 .expect('Content-Type', /json/)
                 .expect(404);
 
-            expect(res.body.error).toBe('Order not found');
+            expect(res.body.message).toBe('Order not found');
         });
     });
 

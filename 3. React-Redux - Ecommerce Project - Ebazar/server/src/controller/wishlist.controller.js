@@ -18,14 +18,13 @@ const httpStatus = require('http-status');
  * @returns {Promise<void>} Responds with the created wishlist item after populating product details.
  */
 exports.addToWishList = catchAsyncUtil.catchAsync(async (req, res) => {
-    console.log(req.body.product)
     if (!mongoose.Types.ObjectId.isValid(req.body.product)) {
         throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid product ID.');
     }
-    
+
     const wishList = new WishList(req.body)
     const data = await wishList.save()
-    let x = await data.populate('product')
+    await data.populate('product')
     res.status(status.OK).json(data);
 })
 
@@ -44,7 +43,7 @@ exports.addToWishList = catchAsyncUtil.catchAsync(async (req, res) => {
 exports.fetchWishListByUser = catchAsyncUtil.catchAsync(async (req, res) => {
     const { id } = req.user
     const data = await WishList.find({ user: id }).populate('product')
-    if (data.length==0) {
+    if (data.length == 0) {
         throw new apiUtil.ApiError(status.NOT_FOUND, "No products in wishlist.");
     }
     res.status(status.OK).json(data);

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "cross-env NODE_ENV=test jest --runInBand --detectOpenHandles",
     "dev": "nodemon --trace-warnings src/index",
     "build": "npm i",
     "start": "node src/index"
@@ -12,9 +12,13 @@
   "jest": {
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/dist/",
-      "/path/to/your/index.js"
+      "/dist/"
     ]
+  },
+  "globals": {
+    "ts-jest": {
+      "isolatedModules": true
+    }
   },
   "keywords": [],
   "author": "",

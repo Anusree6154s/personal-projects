@@ -25,7 +25,7 @@ passport.use("jwt", jwtStrategy);
 
 
 server.use('/', (req, res, next) => {
-    console.log('route success')
+    // console.log('route success')
     next()
 })
 server.use('/api', routes)

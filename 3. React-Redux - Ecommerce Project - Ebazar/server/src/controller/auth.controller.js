@@ -1,12 +1,11 @@
 
 const jwt = require("jsonwebtoken");
-const status = require('http-status')
-const { env } = require("../config/env.config.js");
-const { User } = require("../model/user.model.js");
-const { validate, validateSignup, validateReset } = require('../utils/validation.util.js')
-const { catchAsyncUtil, apiUtil, sanitizeUtil } = require("../utils/index.js");
-const { cryptoService } = require("../services/controller.services/crypto.service.js");
-const { authService } = require("../services/auth.services/auth.service.js");
+const httpStatus = require("http-status");
+const { env } = require("../config/env.config");
+const { catchAsyncUtil, validationUtil, apiUtil, sanitizeUtil } = require("../utils");
+const { cryptoService, authService } = require("../services");
+const { User } = require("../model/user.model");
+const { ApiError } = require("../utils/ApiError.util");
 
 /**
  * Creates a new user, signs them in, and returns a JWT token in a cookie.
@@ -19,18 +18,23 @@ const { authService } = require("../services/auth.services/auth.service.js");
  * @throws {apiUtil.ApiError} Throws an error if user signup fails.
  */
 exports.createUser = catchAsyncUtil.catchAsync(async (req, res) => {
-  validate({ email: req.body.email, password: req.body.password }, validateSignup)
+  validationUtil.validate({
+    email: req.body.email,
+    password: req.body.password
+  },
+    validationUtil.validateSignup
+  )
 
   const data = await cryptoService.crytpoSignup(req.body)
-  const token = jwt.sign(sanitizeUtil.santizeUser(data), env.jwt.secret_key);
+  const token = jwt.sign(sanitizeUtil.sanitizeUser(data), env.jwt.secret_key);
 
   res
     .cookie("jwt", token, {
       expires: new Date(Date.now() + 3600000),
       httpOnly: true,
     })
-    .status(status.CREATED)
-    .json(sanitizeUtil.santizeUser(data));
+    .status(httpStatus.CREATED)
+    .json(sanitizeUtil.sanitizeUser(data));
 })
 
 /**
@@ -48,7 +52,7 @@ exports.loginUser = catchAsyncUtil.catchAsync(async (req, res) => {
       expires: new Date(Date.now() + 3600000), //1hr
       httpOnly: true,
     })
-    .status(status.OK)
+    .status(httpStatus.OK)
     .json(req.user.info);
 })
 
@@ -64,8 +68,8 @@ exports.loginUser = catchAsyncUtil.catchAsync(async (req, res) => {
  */
 exports.logoutUser = catchAsyncUtil.catchAsync(async (req, res) => {
   res
-    .cookie("jwt", '', { expires: new Date(0) })
-    .status(status.OK)
+    .cookie("jwt", '', { expires: new Date(0), httpOnly: true })
+    .status(httpStatus.OK)
     .json({ id: null })
 })
 
@@ -81,8 +85,9 @@ exports.logoutUser = catchAsyncUtil.catchAsync(async (req, res) => {
  * @throws {apiUtil.ApiError} Throws a 401 (Unauthorized) error if the user is not authenticated.
  */
 exports.checkAuth = catchAsyncUtil.catchAsync(async (req, res) => {
-  if (req.user) res.status(status.OK).json(req.user);
-  throw new apiUtil.ApiError(status.UNAUTHORIZED)
+  if (req.user) res.status(httpStatus.OK).json(req.user);
+
+  throw new apiUtil.ApiError(httpStatus.UNAUTHORIZED, 'Check Failed')
 })
 
 
@@ -96,13 +101,13 @@ exports.checkAuth = catchAsyncUtil.catchAsync(async (req, res) => {
  * @returns {Promise<void>} Responds with a success message after sending OTP.
  * @throws {apiUtil.ApiError} Throws a 404 (Not Found) error if the email is not found in the database.
  */
-exports.sendOTP = catchAsyncUtil.catchAsync(async (req, res) => {
-  const user = await User.find({ email: req.body.email });
-  if (user.length === 0) {
-    throw new apiUtil.ApiError(status.NOT_FOUND, "Email doesn't exist")
+exports.sendOTP = catchAsyncUtil.catchAsync(async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    throw new apiUtil.ApiError(httpStatus.NOT_FOUND, "Email doesn't exist");
   }
-  await authService.sendEmail(req.body.email, req.body.OTP, user[0].id);
-  res.status(status.OK).send('OTP sent successfully');
+  await authService.sendEmail(req.body.email, req.body.OTP, user.id);
+  res.status(httpStatus.OK).json({ message: 'OTP sent successfully' });
 })
 
 
@@ -118,8 +123,9 @@ exports.sendOTP = catchAsyncUtil.catchAsync(async (req, res) => {
  * @throws {apiUtil.ApiError} Throws an error if the password reset fails.
  */
 exports.resetPassword = catchAsyncUtil.catchAsync(async (req, res) => {
-  validate({ password: req.body.password }, validateReset)
+  validationUtil.validate({ password: req.body.password }, validationUtil.validateReset)
+  // if (!value.result) throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, value.error)
 
   await cryptoService.crytpoReset(req.params.id, req.body.password)
-  res.status(status.OK).send('Password has been reset')
+  res.status(httpStatus.OK).json({ message: 'Password has been reset' })
 })

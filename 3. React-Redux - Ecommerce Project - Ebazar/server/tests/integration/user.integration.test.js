@@ -67,7 +67,7 @@ describe("User routes", () => {
                 id: String(userId),
                 email: 'updateduser@example.com',
                 role: 'user',
-                addresses: [], 
+                addresses: [],
                 address: '456 Main St',
                 name: 'Updated User',
                 phone: 987654321,
@@ -76,7 +76,7 @@ describe("User routes", () => {
         });
 
         test('should return 404 if user is not found', async () => {
-            const nonExistentUserId =  '605c72ef1f2a2b001e8d6c6d';
+            const nonExistentUserId = '605c72ef1f2a2b001e8d6c6d';
 
             const res = await request(server)
                 .patch(`/api/users/user/${nonExistentUserId}`)
@@ -86,7 +86,7 @@ describe("User routes", () => {
                 })
                 .expect(404);
 
-            expect(res.body.error).toBe('User not found');
+            expect(res.body.message).toBe('User not found');
         });
 
         test('should return 401 if no token is provided', async () => {

@@ -6,9 +6,7 @@
  * @module config/passport.config
  */
 
-const { passportService } = require("../services/controller.services/passport.service");
-
-
+const { passportService } = require("../services");
 const LocalStrategy = require("passport-local").Strategy;
 const JwtStrategy = require("passport-jwt").Strategy;
 

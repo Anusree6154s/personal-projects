@@ -4,7 +4,7 @@ const httpStatus = require('http-status');
 
 const validate = (obj, schema) => {
     const { error } = schema.validate(obj);
-    if (error) throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, error.details[0].message);
+    if (error) throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, error.details[0].message )
 }
 
 const validateSignup = Joi.object({

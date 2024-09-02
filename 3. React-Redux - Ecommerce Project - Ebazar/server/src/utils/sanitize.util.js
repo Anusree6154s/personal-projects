@@ -15,7 +15,7 @@
  * @param {Object} [user.image] - The user's profile image (optional).
  * @returns {Object} An object containing the sanitized user data.
  */
-const santizeUser = (user) => {
+const sanitizeUser = (user) => {
     return {
         id: user.id,
         email: user.email,
@@ -29,4 +29,4 @@ const santizeUser = (user) => {
     };
 };
 
-module.exports = { santizeUser }
+module.exports = { sanitizeUser }

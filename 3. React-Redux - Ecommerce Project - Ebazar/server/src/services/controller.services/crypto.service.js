@@ -1,10 +1,9 @@
-//hash password using crpto and craete token using jwt
+//hash password using crpto and create token using jwt
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const { User } = require("../../model/user.model");
-const httpStatus = require("http-status");
-const { apiUtil, cryptoUtil, sanitizeUtil } = require("../../utils");
-const { authService } = require("../auth.services/auth.service");
+const { cryptoUtil, sanitizeUtil, apiUtil } = require("../../utils");
+const { authService } = require("..");
 
 /**
  * Hashes the provided password and creates a JWT token for the user if the password matches.
@@ -24,7 +23,7 @@ const crytpoJwt = async function (user, password, done) {
             done(null, false, { message: "Invalid credentials" });
         } else {
             const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
-            return done(null, { info: sanitizeUtil.santizeUser(user), token: token });
+            return done(null, { info: sanitizeUtil.sanitizeUser(user), token: token });
         }
     } catch (error) {
         throw new apiUtil.ApiError(error.status, error.message)
@@ -82,9 +81,8 @@ const crytpoReset = async function (id, password) {
 
 }
 
-module.exports.cryptoService = {
+module.exports = {
     crytpoJwt,
     crytpoSignup,
     crytpoReset
-
 }

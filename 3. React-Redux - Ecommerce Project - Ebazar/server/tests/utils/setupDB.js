@@ -11,9 +11,9 @@ const setupTestDB = () => {
   beforeAll(async () => {
     await mongoose.connect(mongoURI)
       .then(async () => {
-        console.log('Connected to MongoDB URI: ' + mongoURI)
+        // console.log('Connected to MongoDB URI: ' + mongoURI)
         serverInstance = await server.listen(serverURL, () => {
-          console.log('Test-Server running on port ' + serverURL)
+          // console.log('Test-Server running on port ' + serverURL)
         })
       })
       .catch(error => console.log('Mongoose test error:', error))

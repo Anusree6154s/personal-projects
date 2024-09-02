@@ -1,9 +1,9 @@
 const setupTestDB = require('../utils/setupDB.js');
 const request = require('supertest');
-const server = require('../../src/server');
+const server = require('../../src/server.js');
 const httpStatus = require('http-status');
-const { product1, deleteProducts, product2, product3, product4, insertProducts } = require('../fixtures/product.fixture');
-const { Product } = require('../../src/model/product.model');
+const { product1, deleteProducts, product2, product3, product4, insertProducts } = require('../fixtures/product.fixture.js');
+const { Product } = require('../../src/model/product.model.js');
 const { insertUsers, userOne, dbDataOne, userTwo } = require('../fixtures/user.fixtures.js');
 const jwt = require('jsonwebtoken');
 const { env } = require('../config/env.config.js');
@@ -150,7 +150,7 @@ describe("Product routes", () => {
                 .expect(httpStatus.NOT_FOUND);
 
             // Check the error message
-            expect(response.body.error).toBe('Product not found');
+            expect(response.body.message).toBe('Product not found');
         });
     })
 
@@ -193,7 +193,7 @@ describe("Product routes", () => {
                 .send({ name: 'Non-existent Product' })
                 .expect(httpStatus.NOT_FOUND);
 
-            expect(response.body.error).toBe('Product not found');
+            expect(response.body.message).toBe('Product not found');
         });
     })
 });

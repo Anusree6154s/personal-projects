@@ -1,8 +1,7 @@
 const { User } = require("../../model/user.model.js");
 const { env } = require("../../config/env.config.js");
+const { cryptoService, cookieService } = require("../index.js");
 const { sanitizeUtil } = require("../../utils/index.js");
-const { cookieService } = require("./cookie.service.js");
-const { cryptoService } = require("./crypto.service.js");
 
 
 /**
@@ -35,11 +34,11 @@ const verifyJwt = async function (jwt_payload, done) {
     try {
         let user = await User.findOne({ _id: jwt_payload.id });
 
-        if (user) return done(null, sanitizeUtil.santizeUser(user));
+        if (user) return done(null, sanitizeUtil.sanitizeUser(user));
         else return done(null, false);
 
     } catch (error) {
-        return done(err, false);
+        return done(error, false);
     }
 }
 
@@ -80,4 +79,4 @@ const verifyLocal = async function (email, password, done) {
 }
 
 
-module.exports.passportService = { optsJwt, verifyJwt, optsLocal, verifyLocal }
+module.exports = { optsJwt, verifyJwt, optsLocal, verifyLocal }

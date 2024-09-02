@@ -5,12 +5,11 @@
 function catchAsync(fn) {
   return function (req, res, next) {
 
-     // Promise wrapper Ensures the function returns a promise, even if it's synchronous
+    // Promise wrapper Ensures the function returns a promise, even if it's synchronous
     Promise.resolve(fn(req, res, next)).catch((err) => {
-      // console.error('Error in catchAsync:', err); 
-      next(err); 
+      next(err);
     });
   }
 }
 
-module.exports = {catchAsync};
+module.exports = { catchAsync };

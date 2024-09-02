@@ -17,4 +17,4 @@ cookieExtractor = (req) => {
     return token;
 };
 
-module.exports.cookieService = { cookieExtractor }
+module.exports = { cookieExtractor }

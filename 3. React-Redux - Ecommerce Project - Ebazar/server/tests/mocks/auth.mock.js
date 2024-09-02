@@ -1,24 +1,47 @@
-const { cryptoService } = require("../../src/services/controller.services/crypto.service");
-const { sanitizeUtil } = require("../../src/utils");
-const { dbDataOne } = require("../fixtures/user.fixtures");
-const jwt = require("jsonwebtoken");
+jest.mock('../../src/utils/validation.util');
+jest.mock('../../src/services/controller.services/crypto.service');
+jest.mock('../../src/utils/sanitize.util');
+jest.mock('jsonwebtoken');
+jest.mock('../../src/model/user.model');
+jest.mock('../../src/services/auth.services/auth.service');
 
-const validate = jest.fn().mockImplementation((input, schema) =>
-    input.email && input.password && schema === validateSignup ? true : false
-);
 
-cryptoService.crytpoSignup = jest.fn().mockImplementation((body) => { return { ...dbDataOne } });
 
-sanitizeUtil.santizeUser = jest.fn().mockImplementation((body) => {
-    const { password, salt, ...sanitizedData } = dbDataOne;
-    return sanitizedData
-});
+let mockReqBody = { email: 'test@example.com', password: 'password123' }
+let mockjwtToken = 'jwtToken'
+let mockSanitzedUserResult = { email: mockReqBody.email }
+let mockValidationResult = undefined;
+let mockCryptoServiceResult = { ...mockReqBody, salt: 'salt' }
+let mockReqUser = { token: mockjwtToken, info: mockSanitzedUserResult }
 
-jwt.sign = jest.fn().mockImplementation((body, secret) => {
-    const { password, salt, ...sanitizedData } = dbDataOne;
-    return sanitizedData
-});
+let reqMock = {
+    body: mockReqBody,
+    user: mockReqUser
+}
+let resMock = {
+    statusCode: null,
+    jsonData: null,
+    cookies: {},
+
+    status: jest.fn().mockImplementation(function (statusCode) {
+        this.statusCode = statusCode;
+        return this;
+    }),
+
+    json: jest.fn().mockImplementation(function (data) {
+        this.jsonData = data;
+        return this;
+    }),
+
+    cookie: jest.fn().mockImplementation(function (name, value, options) {
+        this.cookies[name] = { value, options };
+        return this;
+    }),
+}
+
+let nextMock = jest.fn()
+
 
 module.exports = {
-    validate
+    mockReqBody, reqMock, resMock, nextMock, mockValidationResult, mockCryptoServiceResult, mockSanitzedUserResult, mockjwtToken
 }

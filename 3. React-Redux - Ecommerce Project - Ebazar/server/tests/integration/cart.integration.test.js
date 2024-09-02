@@ -86,7 +86,7 @@ describe("Cart routes", () => {
                 .get('/api/cart')
                 .expect(httpStatus.UNAUTHORIZED);
 
-            expect(res.body.error).toBe('Authentication Failed');
+            expect(res.body.message).toBe('Authentication Failed');
         });
     });
 
@@ -115,25 +115,24 @@ describe("Cart routes", () => {
         });
 
         test('should return 404 if the cart item does not exist', async () => {
-            const fakeId = '612c88e3798e4e3b5c77b3c6'; 
+            const fakeId = '612c88e3798e4e3b5c77b3c6';
 
             const res = await request(server)
                 .delete(`/api/cart/${fakeId}`)
                 .set('Cookie', [`jwt=${token}`])
                 .expect(404);
 
-            expect(res.body.error).toMatch(/empty cart/i);
+            expect(res.body.message).toMatch(/empty cart/i);
         });
 
         test('should return 400 if the cart item ID is invalid', async () => {
             const invalidId = '123';
-
             const res = await request(server)
                 .delete(`/api/cart/${invalidId}`)
                 .set('Cookie', [`jwt=${token}`])
                 .expect(400);
 
-            expect(res.body.error).toMatch(/invalid/i);
+            expect(res.body.message).toMatch(/invalid/i);
         });
     });
 
@@ -149,57 +148,57 @@ describe("Cart routes", () => {
             await deleteCart()
         });
 
-    
+
         test('should update the cart item and return the updated item', async () => {
             const updateData = { quantity: 5 };
-    
+
             const res = await request(server)
                 .patch(`/api/cart/${cartItemId}`)
                 .set('Cookie', [`jwt=${token}`])
                 .send(updateData)
                 .expect(200);
-    
+
             expect(res.body).toHaveProperty('id', cartItemId);
             expect(res.body).toHaveProperty('quantity', 5);
-    
+
             const cartItemInDb = await Cart.findById(cartItemId);
             expect(cartItemInDb.quantity).toBe(5);
         });
-    
+
         test('should return 404 if the cart item does not exist', async () => {
             const fakeId = '612c88e3798e4e3b5c77b3c6'; // Use a valid but non-existing ObjectId
             const updateData = { quantity: 5 };
-    
+
             const res = await request(server)
                 .patch(`/api/cart/${fakeId}`)
                 .set('Cookie', [`jwt=${token}`])
                 .send(updateData)
                 .expect(404);
-    
-            expect(res.body.error).toMatch(/cart item does not exist/i);
+
+            expect(res.body.message).toMatch(/cart item does not exist/i);
         });
-    
+
         test('should return 400 if the cart item ID is invalid', async () => {
             const invalidId = '123';
             const updateData = { quantity: 5 };
-    
+
             const res = await request(server)
                 .patch(`/api/cart/${invalidId}`)
                 .set('Cookie', [`jwt=${token}`])
                 .send(updateData)
                 .expect(400);
-    
-            expect(res.body.error).toMatch(/invalid/i);
+
+            expect(res.body.message).toMatch(/invalid/i);
         });
-    
+
         test('should return 400 if no update data is provided', async () => {
             const res = await request(server)
                 .patch(`/api/cart/${cartItemId}`)
                 .set('Cookie', [`jwt=${token}`])
                 .send({})
                 .expect(400);
-    
-            expect(res.body.error).toMatch(/No update item provided/i);
+
+            expect(res.body.message).toMatch(/No update item provided/i);
         });
     });
 })

@@ -14,13 +14,13 @@ setupTestDB();
 // })
 
 describe("Connection Integration", () => {
-    test("should be connected to MongoDB", () => {
-      expect(mongoose.connection.readyState).toBe(1); // 1 means connected
-    });
+  test("should be connected to MongoDB", () => {
+    expect(mongoose.connection.readyState).toBe(1); // 1 means connected
+  });
 
-    test("should be connected to the server", async () => {
-      const res = await request(server).get("/");
-      expect(res.statusCode).toBe(200);
-    });
+  test("should be connected to the server", async () => {
+    const res = await request(server).get("/");
+    expect(res.statusCode).toBe(200);
+  });
 });
 

@@ -1,8 +1,8 @@
 
-const status = require('http-status');
 const { catchAsyncUtil, apiUtil } = require("../utils/index.js");
 const httpStatus = require('http-status');
 const { Cart } = require('../model/cart.model');
+const mongoose = require('mongoose');
 
 /**
  * Controller to add a product to the cart.
@@ -20,7 +20,7 @@ exports.addToCart = catchAsyncUtil.catchAsync(async (req, res) => {
     const cart = new Cart(req.body);
     const data = await cart.save();
     await data.populate('product');
-    res.status(status.CREATED).json(data);
+    res.status(httpStatus.CREATED).json(data);
 });
 
 
@@ -40,8 +40,11 @@ exports.addToCart = catchAsyncUtil.catchAsync(async (req, res) => {
 exports.fetchCartByUser = catchAsyncUtil.catchAsync(async (req, res) => {
     const { id } = req.user;
     const data = await Cart.find({ user: id }).populate('product');
-    if (!data) throw new apiUtil.ApiError(httpStatus.NOT_FOUND, 'No items in cart.')
-    res.status(status.OK).json(data);
+    if (!data) {
+        throw new apiUtil.ApiError(httpStatus.NOT_FOUND, 'No items in cart.')
+    }
+    res.status(httpStatus.OK).json(data);
+
 });
 
 
@@ -60,9 +63,16 @@ exports.fetchCartByUser = catchAsyncUtil.catchAsync(async (req, res) => {
  */
 exports.deleteFromCart = catchAsyncUtil.catchAsync(async (req, res) => {
     const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, 'Invalid cart item ID');
+    }
+
     const data = await Cart.findByIdAndDelete(id);
+
     if (!data) throw new apiUtil.ApiError(httpStatus.NOT_FOUND, 'Empty cart')
-    res.status(status.OK).json(data);
+
+    res.status(httpStatus.OK).json(data);
 });
 
 
@@ -82,11 +92,20 @@ exports.deleteFromCart = catchAsyncUtil.catchAsync(async (req, res) => {
  */
 exports.updateCart = catchAsyncUtil.catchAsync(async (req, res) => {
     const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, 'Invalid cart item ID');
+    }
+
     const updateData = req.body;
-    // console.log(!!updateData)
-    if (Object.keys(updateData).length === 0) throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, 'No update item provided')
+    if (Object.keys(updateData).length === 0) {
+        throw new apiUtil.ApiError(httpStatus.BAD_REQUEST, 'No update item provided')
+    }
+
     const data = await Cart.findByIdAndUpdate(id, updateData, { new: true });
-    if (!data) throw new apiUtil.ApiError(httpStatus.NOT_FOUND, 'Cart item does not exist')
+    if (!data) {
+        throw new apiUtil.ApiError(httpStatus.NOT_FOUND, 'Cart item does not exist')
+    }
     await data.populate('product');
-    res.status(status.OK).json(data);
+
+    res.status(httpStatus.OK).json(data);
 });

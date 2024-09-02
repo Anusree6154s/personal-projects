@@ -18,7 +18,7 @@ const { Brand } = require('../model/brand.model')
  */
 exports.createBrand = catchAsyncUtil.catchAsync(async (req, res) => {
     const brand = new Brand(req.body)
-    const data = await brand.save()
+    const data = await brand.save(req.body)
     res.status(status.CREATED).json(data)
 })
 

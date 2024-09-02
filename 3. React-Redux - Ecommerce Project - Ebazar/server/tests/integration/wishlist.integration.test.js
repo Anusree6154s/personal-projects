@@ -69,7 +69,7 @@ describe("Cart routes", () => {
                 .send(wishlistClone)
                 .expect(400);
 
-            expect(res.body.error).toMatch(/invalid/i);
+            expect(res.body.message).toMatch(/invalid/i);
         });
 
         test('should return 401 if the user is not authenticated', async () => {
@@ -78,7 +78,7 @@ describe("Cart routes", () => {
                 .send(wishlist)
                 .expect(401);
 
-            expect(res.body.error).toMatch(/Authentication Failed/i);
+            expect(res.body.message).toMatch(/Authentication Failed/i);
         });
     });
 
@@ -109,7 +109,7 @@ describe("Cart routes", () => {
                 .set('Cookie', [`jwt=${token}`])
                 .expect(httpStatus.NOT_FOUND);
 
-            expect(response.body.error).toBe('No products in wishlist.');
+            expect(response.body.message).toBe('No products in wishlist.');
         });
     });
 
@@ -142,7 +142,7 @@ describe("Cart routes", () => {
                 .send();
 
             expect(res.status).toBe(httpStatus.NOT_FOUND);
-            expect(res.body.error).toBe('Wishlist item not found'); 
+            expect(res.body.message).toBe('Wishlist item not found');
         });
     });
 })

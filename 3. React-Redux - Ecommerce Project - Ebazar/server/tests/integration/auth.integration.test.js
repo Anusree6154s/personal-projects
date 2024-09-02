@@ -1,15 +1,14 @@
 const setupTestDB = require('../utils/setupDB.js');
-const { faker } = require('@faker-js/faker')
 const request = require('supertest');
 const server = require('../../src/server.js');
 const httpStatus = require('http-status');
-const { User } = require('../../src/model/user.model');
-const { insertUsers, userOne, deleteUsers, dbDataOne, userTwo, findUser } = require('../fixtures/user.fixtures.js');
+const { User } = require('../../src/model/user.model.js');
+const { insertUsers, userOne, deleteUsers, dbDataOne, userTwo } = require('../fixtures/user.fixtures.js');
 const jwt = require("jsonwebtoken");
 
 
 setupTestDB();
-
+jest.useFakeTimers()
 
 // describe('Dummy Test Template', () => {
 //     test('dummy test', () => {
@@ -98,7 +97,6 @@ describe("Auth routes", () => {
 
             expect(res.status).toEqual(httpStatus.BAD_REQUEST);
         });
-
 
         test("should return 400 error if password has invalid syntax", async () => {
             newUser.password = "password";
@@ -192,12 +190,17 @@ describe("Auth routes", () => {
             await insertUsers(dbDataOne);
         });
 
+        afterAll(()=>{
+            jest.clearAllTimers()
+        })
+
         test("should return 200 and send OTP on success", async () => {
             const payload = { email: userOne.email };
 
             const res = await request(server)
                 .post("/api/auth/sendOTP")
                 .send(payload);
+            await jest.runAllTimersAsync()
 
 
             expect(res.status).toEqual(httpStatus.OK);
@@ -229,7 +232,6 @@ describe("Auth routes", () => {
             const res = await request(server)
                 .patch("/api/auth/resetpassword/" + userid)
                 .send(payload);
-
             expect(res.status).toEqual(httpStatus.OK);
         }, 10000);
 
@@ -256,19 +258,17 @@ describe("Auth routes", () => {
         let tokenCookie;
 
         beforeAll(async () => {
-            // Simulate a login to get the JWT token cookie
             const loginResponse = await request(server)
                 .post("/api/auth/login")
                 .send({ ...userOne });
 
-            // Extract the token cookie from the login response
             tokenCookie = loginResponse.headers['set-cookie'].find(cookie => cookie.startsWith('jwt='));
         });
 
         test("should return 200 and user data with valid JWT token", async () => {
             const res = await request(server)
                 .get("/api/auth/check")
-                .set('Cookie', tokenCookie); // Include the cookie in the request
+                .set('Cookie', tokenCookie);
 
             expect(res.status).toBe(200);
             expect(res.body).toMatchObject({
@@ -288,7 +288,7 @@ describe("Auth routes", () => {
         });
     });
 
-    describe("PATCH /api/auth/logout", () => {
+    describe("GET /api/auth/logout", () => {
         let tokenCookie;
 
         beforeAll(async () => {
@@ -316,7 +316,7 @@ describe("Auth routes", () => {
             const tokenCookieAfterLogout = cookies.find(cookie => cookie.startsWith('jwt='));
 
             // verify that cookieis cleared and set with an expiration date in the past
-            expect(tokenCookieAfterLogout).toMatch(/^jwt=; Path=\/; Expires=Thu, 01 Jan 1970 00:00:00 GMT$/);
+            expect(tokenCookieAfterLogout).toMatch(/^jwt=; Path=\/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly$/);
         });
     });
 });

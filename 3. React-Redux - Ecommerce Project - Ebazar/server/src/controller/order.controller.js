@@ -22,7 +22,6 @@ exports.createOrder = catchAsyncUtil.catchAsync(async (req, res) => {
     if (Object.keys(order._doc).length <= Object.keys(Order.schema.obj).length) {
         throw new apiUtil.ApiError(status.BAD_REQUEST, "Order details missing");
     }
-
     const data = await order.save();
     res.status(status.CREATED).json(data);
 });

@@ -22,6 +22,7 @@ const { catchAsyncUtil, apiUtil } = require("../utils/index.js");
  */
 exports.isAuthJwt = catchAsyncUtil.catchAsync((req, res, next) => {
     passport.authenticate("jwt", (err, user, info) => {
+        //  console.log(err, user, info)
         if (err || !user)
             return next(new apiUtil.ApiError(httpStatus.UNAUTHORIZED, "Authentication Failed"))
 
