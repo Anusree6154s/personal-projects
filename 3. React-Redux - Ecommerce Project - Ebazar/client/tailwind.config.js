@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const tailwindConfig = {
   darkMode: 'class',
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -18,3 +18,5 @@ export default {
     require('@tailwindcss/forms'),
   ],
 };
+
+export default tailwindConfig;

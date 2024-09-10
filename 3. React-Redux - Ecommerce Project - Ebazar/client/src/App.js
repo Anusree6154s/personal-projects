@@ -1,34 +1,30 @@
 import React, { useEffect } from "react";
 import "./styles/App.css";
-import { Navigate, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchItemsByUserIdAsync, } from "./features/cart/cartSlice";
-import { checkAuthAsync, selectAuthSliceStatus, selectLoggedInUser, selectUserChecked, } from "./features/auth/authSlice";
-import { fetchLoggedInUserAsync } from "./features/user/userSlice";
-import { fetchWishListByUserIdAsync } from "./features/wishList/wishListSlice";
-import { router } from "./Routes";
+import { router } from "./routes/Routes";
+import { checkAuthAsync, fetchItemsByUserIdAsync, fetchLoggedInUserAsync, fetchWishListByUserIdAsync, selectLoggedInUser } from "./redux";
+
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
-  const AuthStatus = useSelector(selectAuthSliceStatus);
 
   useEffect(() => {
     if (user) {
       dispatch(fetchItemsByUserIdAsync());
       dispatch(fetchWishListByUserIdAsync())
-      
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     dispatch(fetchLoggedInUserAsync());
     dispatch(checkAuthAsync());
-  }, []);
+  }, [dispatch]);
 
 
   return (
     <div className="dark:bg-gray-900">
-       <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </div>
   );
 }

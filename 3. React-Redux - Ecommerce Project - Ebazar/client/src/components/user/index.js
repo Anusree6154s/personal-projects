@@ -1,0 +1,9 @@
+export { default as Cart } from './cart';
+export { default as Checkout } from './checkout';
+export { default as PaymentForm } from './PaymentForm';
+export { default as ProductDetail } from './productDetail';
+export { default as ProductList } from './productList';
+export { default as StripePayment } from './StripePayment';
+export { default as UserOrders } from './userOrders';
+export { default as UserProfile } from './userProfile';
+export { default as wishList } from './wishList';

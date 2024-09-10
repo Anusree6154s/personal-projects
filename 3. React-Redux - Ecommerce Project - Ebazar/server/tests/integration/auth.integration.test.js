@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 
 
 setupTestDB();
-jest.useFakeTimers()
+// jest.useFakeTimers()
 
 // describe('Dummy Test Template', () => {
 //     test('dummy test', () => {
@@ -190,9 +190,9 @@ describe("Auth routes", () => {
             await insertUsers(dbDataOne);
         });
 
-        afterAll(()=>{
-            jest.clearAllTimers()
-        })
+        // afterAll(()=>{
+        //     jest.clearAllTimers()
+        // })
 
         test("should return 200 and send OTP on success", async () => {
             const payload = { email: userOne.email };
@@ -200,7 +200,7 @@ describe("Auth routes", () => {
             const res = await request(server)
                 .post("/api/auth/sendOTP")
                 .send(payload);
-            await jest.runAllTimersAsync()
+            // await jest.runAllTimersAsync()
 
 
             expect(res.status).toEqual(httpStatus.OK);
