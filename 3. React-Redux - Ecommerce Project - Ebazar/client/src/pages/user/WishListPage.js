@@ -1,12 +1,12 @@
-import NavBar from "../../components/common/Navbar";
-import WishList from "../../components/wishList/wishList";
+import Navbar from "../../components/common/Navbar";
+import Wishlist from "../../components/user/Wishlist";
 
 function WishListPage() {
     return (
         <div>
-            <NavBar name="Wish List">
-                <WishList></WishList>
-            </NavBar>
+            <Navbar name="Wish List">
+                <Wishlist></Wishlist>
+            </Navbar>
         </div>
     );
 }

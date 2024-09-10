@@ -1,9 +1,10 @@
-export { default as Cart } from './cart';
-export { default as Checkout } from './checkout';
+export { default as Cart } from './Cart';
+export { default as Checkout } from './Checkout';
 export { default as PaymentForm } from './PaymentForm';
-export { default as ProductDetail } from './productDetail';
-export { default as ProductList } from './productList';
+export { default as ProductDetail } from './ProductDetail';
+export { default as ProductList } from './ProductList';
 export { default as StripePayment } from './StripePayment';
-export { default as UserOrders } from './userOrders';
-export { default as UserProfile } from './userProfile';
-export { default as wishList } from './wishList';
+export { default as UserOrders } from './UserOrders';
+export { default as UserProfile } from './UserProfile';
+export { default as Wishlist } from './Wishlist';
+export { default as OrderSuccess } from './OrderSuccess';

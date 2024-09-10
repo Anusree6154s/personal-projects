@@ -1,7 +1,7 @@
 export { default as CartPage } from './CartPage';
 export { default as CheckoutPage } from './CheckoutPage';
 export { default as Home } from './Home';
-export { default as OrderSuccessPage } from './OrderSuccessPage';
+export { default as OrderSuccessPage } from '../../components/user/OrderSuccess';
 export { default as ProductDetailPage } from './ProductDetailPage';
 export { default as StripePaymentPage } from './StripePaymentPage';
 export { default as UserOrdersPage } from './UserOrdersPage';

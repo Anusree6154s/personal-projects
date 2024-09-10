@@ -1,12 +1,12 @@
-import NavBar from "../../components/common/Navbar";
+import Navbar from "../../components/common/Navbar";
 import { Cart } from "../../components/user";
 
 function CartPage() {
     return (
         <div>
-            <NavBar name='Shopping Cart'>
+            <Navbar name='Shopping Cart'>
                 <Cart></Cart>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

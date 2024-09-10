@@ -1,12 +1,12 @@
-import NavBar from "../../components/common/Navbar";
-import EditProductForm from "../../components/admin/forms/editProductForm";
+import { EditProductForm } from "../../components/admin";
+import Navbar from "../../components/common/Navbar";
 
 function EditProductFormPage() {
     return (
         <div>
-            <NavBar name='Edit Product Details'>
+            <Navbar name='Edit Product Details'>
                 <EditProductForm></EditProductForm>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

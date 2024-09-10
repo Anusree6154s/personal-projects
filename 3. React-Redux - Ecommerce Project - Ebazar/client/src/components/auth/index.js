@@ -1,4 +1,4 @@
-export { default as ForgotPassword } from './forgotPassword';
+export { default as ForgotPassword } from './ForgotPassword';
 export { default as Login } from './Login';
 export { default as Logout } from './Logout';
 export { default as Protected } from './Protected';

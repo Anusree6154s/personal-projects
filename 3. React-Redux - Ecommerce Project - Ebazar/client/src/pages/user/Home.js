@@ -1,12 +1,12 @@
-import NavBar from "../../components/common/Navbar";
+import Navbar from "../../components/common/Navbar";
 import { ProductList } from "../../components/user";
 
 function Home() {
     return (
         <div>
-            <NavBar name='Products'>
+            <Navbar name='Products'>
                 <ProductList></ProductList>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

@@ -14,7 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavBar({ children, name, preview }) {
+export default function Navbar({ children, name, preview }) {
   const user = useSelector(selectLoggedInUser)
   const items = useSelector(selectItems)
 

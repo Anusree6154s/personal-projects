@@ -1,12 +1,12 @@
-import NavBar from "../../components/common/Navbar";
+import Navbar from "../../components/common/Navbar";
 import { Checkout } from "../../components/user";
 
 function CheckoutPage() {
     return (
         <div>
-            <NavBar name='Checkout'>
+            <Navbar name='Checkout'>
                 <Checkout></Checkout>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

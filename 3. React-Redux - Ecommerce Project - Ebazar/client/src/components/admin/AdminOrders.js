@@ -1,5 +1,5 @@
 
-import { ChevronLeftIcon, ChevronRightIcon, EyeIcon, PencilIcon, ArrowDownIcon, ArrowUpIcon, ArrowLeftIcon } from '@heroicons/react/20/solid'
+import { ChevronLeftIcon, ChevronRightIcon, PencilIcon, ArrowDownIcon, ArrowUpIcon, ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ITEMS_PER_PAGE } from '../../app/constants';
@@ -79,6 +79,7 @@ function AdminOrders() {
                                             <img
                                                 className="w-6 h-6 rounded-full"
                                                 src={item.product.thumbnail}
+                                                alt={item.product.title}
                                             />
                                         </div>
                                         <span>{item.product.title}</span>
