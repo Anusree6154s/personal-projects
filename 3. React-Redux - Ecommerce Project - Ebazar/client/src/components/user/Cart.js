@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { Link, Navigate } from "react-router-dom"
-import { deleteItemFromCartAsync, selectCartStatus, selectItems, updateCartAsync } from "./cartSlice"
+import { deleteItemFromCartAsync, selectCartStatus, selectItems, updateCartAsync } from "../../redux"
 
 function Cart() {
   const dispatch = useDispatch()
@@ -25,7 +25,7 @@ function Cart() {
 
       <div className="flex flex-col bg-white dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex-1 px-4 py-6 sm:px-6 flow-root">
-          <ul role="list" className="-my-6 divide-y divide-gray-200 dark:divide-gray-500">
+          <ul className="-my-6 divide-y divide-gray-200 dark:divide-gray-500">
             {items.map((item, index) => (
               <li key={index} className="flex py-6">
                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-500">

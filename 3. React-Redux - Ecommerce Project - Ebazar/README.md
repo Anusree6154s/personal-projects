@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/1e_2ODGhsHyllY76aOna_hTmNdq11-3CUuB-amNahE-8/edit
+
 For a deployed and hosted eCommerce application, your README should focus on providing users and potential contributors with the necessary information to understand, interact with, and potentially contribute to the application. Here's a streamlined version focusing on the aspects relevant to a live application:
 
 
@@ -64,7 +66,7 @@ For a deployed and hosted eCommerce application, your README should focus on pro
 
 ### **Example Structure:**
 
-```markdown
+
 # eCommerce App
 
 ## Description
@@ -122,6 +124,6 @@ An eCommerce application for browsing products, managing a shopping cart, and co
 ## Screenshots
 - ![Homepage](./screenshots/homepage.png)
 - ![Admin Dashboard](./screenshots/admin-dashboard.png)
-```
+
 
 Adjust the sections based on your specific application details and the information you want to highlight.

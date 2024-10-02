@@ -2,7 +2,7 @@ import React from 'react';
 import { StarIcon, ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteItemFromWishListAsync, selectWishList } from '../../../redux/slices/wishListSlice';
+import { deleteItemFromWishListAsync, selectWishList } from '../../redux';
 
 //TODO: on server, code for sortaoptions
 //TODO: in own project, fix json server link to show data for multiple filter options , and pagination for multiple limits

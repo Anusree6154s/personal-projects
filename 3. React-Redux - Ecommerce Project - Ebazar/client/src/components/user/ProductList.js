@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon, ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchBrandsAsync, fetchCategoriesAsync, fetchProductsByFiltersAsync, selectAllBrands, selectAllCategories, selectAllProducts, selectLoggedInUser, selectTotalItems } from '../../redux';
@@ -86,7 +86,7 @@ function ProductList() {
   useEffect(() => {
     dispatch(fetchBrandsAsync())
     dispatch(fetchCategoriesAsync())
-  }, [])
+  }, [dispatch])
 
   return (
     <div className='ProductList'>

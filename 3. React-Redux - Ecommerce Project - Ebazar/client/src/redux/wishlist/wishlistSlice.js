@@ -6,8 +6,6 @@ const initialState = {
     status: null,
 };
 
-
-
 export const wishListSlice = createSlice({
     name: 'wishlist',
     initialState,

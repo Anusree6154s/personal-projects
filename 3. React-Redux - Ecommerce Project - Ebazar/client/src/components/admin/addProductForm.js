@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { useForm } from "react-hook-form";
-import { createProductAsync, selectAllBrands, selectAllCategories, selectNewProduct } from '../../productSlice';
+import { createProductAsync, selectAllBrands, selectAllCategories, selectNewProduct } from '../../redux';
 import { Link, Navigate } from 'react-router-dom';
 
 //TODO: in my own project make changes to add imag eoption to take image from computer as file using multsmthng
@@ -11,7 +11,7 @@ function AddProductForm() {
         register,
         reset,
         handleSubmit,
-        formState: { errors },
+        // formState: { errors },
     } = useForm()
     const brands = useSelector(selectAllBrands)
     const categories = useSelector(selectAllCategories)

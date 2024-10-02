@@ -8,6 +8,7 @@ import {
     createProductAsync,
     editProductAsync,
 } from './productsThunks';
+import { resetNewProduct } from './productsActions';
 
 const initialState = {
     products: [],
@@ -25,11 +26,7 @@ const initialState = {
 export const productsSlice = createSlice({
     name: 'products',
     initialState,
-    reducers: {
-        resetNewProduct: (state) => {
-            state.newProduct = null;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchProductsAsync.pending, (state) => {
@@ -85,6 +82,9 @@ export const productsSlice = createSlice({
                 state.products.splice(index, 1, action.payload)
                 state.newProduct = action.payload;
             })
+            .addCase(resetNewProduct, (state) => { 
+                state.newProduct = null;
+            });
 
     },
 });

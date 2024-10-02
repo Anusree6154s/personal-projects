@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { StarIcon, ArrowLeftIcon, CheckCircleIcon, HeartIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useParams, Navigate } from 'react-router-dom'
-import { resetNewProduct, selectProductById, fetchProductByIdAsync, selectNewProduct } from '../../../redux/slices/productSlice'
-import { updateCartAsync, addToCartAsync, selectItems } from '../../../redux/slices/cartSlice'
-import { selectLoggedInUser } from '../../../redux/slices/authSlice'
-import { selectWishList, addToWishListAsync } from '../../../redux/slices/wishListSlice'
+import { Link, useParams } from 'react-router-dom'
+import { addToCartAsync, addToWishListAsync, fetchProductByIdAsync, resetNewProduct, selectItems, selectLoggedInUser, selectProductById, selectWishList, updateCartAsync } from '../../redux'
 
 
 function classNames(...classes) {
@@ -26,11 +23,11 @@ function ProductDetail() {
 
     useEffect(() => {
         dispatch(fetchProductByIdAsync(params.id))
-    }, [params.id])
+    }, [dispatch, params.id])
 
     useEffect(() => {
         dispatch(resetNewProduct())
-    }, [])
+    }, [dispatch])
 
 
     const handleQuantity = (e) => {
@@ -253,7 +250,7 @@ function ProductDetail() {
                             <div className="mt-10">
                                 <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">Highlights</h3>
                                 <div className="mt-4">
-                                    <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                                    <ul  className="list-disc space-y-2 pl-4 text-sm">
                                         {product.highlights.map((highlight) => (
                                             <li key={highlight} className="text-gray-400 dark:text-gray-100">
                                                 <span className="text-gray-600 dark:text-gray-400">{highlight}</span>

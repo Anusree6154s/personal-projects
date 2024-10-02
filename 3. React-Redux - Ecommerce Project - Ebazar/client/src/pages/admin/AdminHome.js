@@ -1,12 +1,11 @@
-import NavBar from "../../components/common/Navbar";
-import AdminProductList from "../../components/admin/product/adminProductList";
+import { AdminProductList, Navbar } from "../../components";
 
 function AdminHome() {
     return (
         <div>
-            <NavBar name='Products'>
+            <Navbar name='Products'>
                 <AdminProductList></AdminProductList>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

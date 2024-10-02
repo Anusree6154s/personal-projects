@@ -1,5 +1,4 @@
-import { EditProductForm } from "../../components/admin";
-import Navbar from "../../components/common/Navbar";
+import { EditProductForm, Navbar } from "../../components";
 
 function EditProductFormPage() {
     return (

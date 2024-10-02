@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { selectLoggedInUser, updateUserAsync } from "../../auth/authSlice";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
-import { selectUserInfo } from "../../user/userSlice";
+import { selectLoggedInUser, updateUserAsync } from "../../redux";
 
 //TODO: payment will be added when working on server
 
@@ -28,7 +27,6 @@ function AdminProfile() {
                 dispatch(updateUserAsync({
                     ...user,
                     name: data.name,
-                    image: data.image,
                     phone: data.phone,
                     image: data.image || e.target.result,
                     address: {
@@ -47,7 +45,6 @@ function AdminProfile() {
             dispatch(updateUserAsync({
                 ...user,
                 name: data.name,
-                image: data.image,
                 phone: data.phone,
                 image: data.image || null,
                 address: {
@@ -96,7 +93,7 @@ function AdminProfile() {
                 ? <div className=" bg-white dark:bg-gradient-to-b dark:from-gray-700 dark:to-gray-800 max-w-7xl px-6 py-14 sm:px-6 lg:px-8 mb-6">
                     <div className={`flex flex-col items-center gap-10  ${!addFormVisibility ? '' : "hidden mt-6"}`}>
 
-                        <img src={user.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZbXR5XmpH1OOJhigJF4nWkJIITHis1Y4dA&s"} alt="image" className="w-40 h-40 rounded-full" />
+                        <img src={user.image || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZbXR5XmpH1OOJhigJF4nWkJIITHis1Y4dA&s"} alt={user.name} className="w-40 h-40 rounded-full" />
 
                         <div className="inline-flex text-gray-900 dark:text-gray-300 text-xl font-medium flex-col gap-5 ">
                             {user.name && <p>Name: <span className="ml-12 font-normal dark:text-gray-400">{user.name}</span></p>}

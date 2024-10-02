@@ -5,7 +5,7 @@ import { selectAuthSliceStatus, selectLoggedInUser } from "../../redux";
 function Protected({ children }) {
     const user = useSelector(selectLoggedInUser)
     const status = useSelector(selectAuthSliceStatus)
-
+console.log(status)
     if (status === 'loading') {
         return <div className='col-span-1 lg:col-span-3'>
             <div className="loader"></div>
@@ -13,7 +13,7 @@ function Protected({ children }) {
     }
 
     if (status === 'idle' && !user) {
-        <Navigate to='/login' replace={true}></Navigate>
+       return <Navigate to='/home' replace={true}></Navigate>
     }
 
     return children

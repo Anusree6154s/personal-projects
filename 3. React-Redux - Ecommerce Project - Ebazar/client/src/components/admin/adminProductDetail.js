@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { StarIcon, ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectProductById, fetchProductByIdAsync, resetNewProduct, selectNewProduct, editProductAsync } from '../../../product/productSlice'
 import { Link, useParams } from 'react-router-dom'
+import { resetNewProduct, selectProductById, fetchProductByIdAsync, editProductAsync, } from '../../redux'
 
 
 function classNames(...classes) {
@@ -17,17 +17,17 @@ function ProductDetail() {
 
     useEffect(() => {
         dispatch(fetchProductByIdAsync(params.id))
-    }, [params.id])
+    }, [dispatch, params.id])
 
     useEffect(() => {
         dispatch(resetNewProduct())
-    }, [])
+    }, [dispatch])
 
 
     const handleDelete = () => {
-        const product = { ...product }
-        product.deleted = true
-        dispatch(editProductAsync(product))
+        const oldProduct = { ...product }
+        oldProduct.deleted = true
+        dispatch(editProductAsync(oldProduct))
     }
     return (
         <div>
@@ -183,7 +183,7 @@ function ProductDetail() {
                             <div className="mt-10">
                                 <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">Highlights</h3>
                                 <div className="mt-4">
-                                    <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                                    <ul className="list-disc space-y-2 pl-4 text-sm">
                                         {product.highlights.map((highlight) => (
                                             <li key={highlight} className="text-gray-400 dark:text-gray-100">
                                                 <span className="text-gray-600 dark:text-gray-400">{highlight}</span>

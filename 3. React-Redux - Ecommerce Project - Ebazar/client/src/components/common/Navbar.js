@@ -3,11 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, ShoppingCartIcon, XMarkIcon, HeartIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { selectItems } from '../user/cart/cartSlice'
-import { selectLoggedInUser } from '../../auth/authSlice'
-
-
-
+import { selectItems, selectLoggedInUser } from '../../redux'
 
 
 function classNames(...classes) {

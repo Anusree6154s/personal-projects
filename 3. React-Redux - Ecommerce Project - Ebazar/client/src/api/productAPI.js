@@ -1,9 +1,8 @@
 import { BASE_URL } from '../app/constants';
-// import { cookie } from '../auth/authAPI';
 
 export function fetchProducts() {
   return new Promise(async (resolve) => {
-    const response = await fetch(BASE_URL + '/products')
+    const response = await fetch(BASE_URL + '/products', { credentials: 'include', })
     const data = await response.json()
     resolve(data)
   });
@@ -11,7 +10,7 @@ export function fetchProducts() {
 
 export function fetchProductsById(id) {
   return new Promise(async (resolve) => {
-    const response = await fetch(BASE_URL + '/products/' + id)
+    const response = await fetch(BASE_URL + '/products/' + id, { credentials: 'include', })
     const data = await response.json()
     resolve(data)
   });
@@ -35,23 +34,9 @@ export function fetchProductsByFilters(role, filter, sort, pagination) {
 
 
   return new Promise(async (resolve) => {
-    const response = await fetch(BASE_URL + `/products?role=${role}&` + queryString,
-      /* remove before deployment */
-      //  {
-      //   headers: {
-      //     Authorization: 'Bearer ' + localStorage.getItem('cookie')
-      //   },
-      // }
-    )
+    const response = await fetch(BASE_URL + `/products?role=${role}&` + queryString, { credentials: 'include', })
     const data = await response.json()
-    const totalItemData = await fetch(BASE_URL + `/products?role=${role}&_limit=1000`,
-      /* remove before deployment */
-      //  {
-      //   headers: {
-      //     Authorization: 'Bearer ' + localStorage.getItem('cookie')
-      //   },
-      // }
-    )
+    const totalItemData = await fetch(BASE_URL + `/products?role=${role}&_limit=1000`, { credentials: 'include', })
     const total = await totalItemData.json()
     resolve({ products: data, totalItems: total.length })
   });
@@ -59,14 +44,7 @@ export function fetchProductsByFilters(role, filter, sort, pagination) {
 
 export function fetchCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch(BASE_URL + '/categories',
-      /* remove before deployment */
-      //  {
-      //   headers: {
-      //     Authorization: 'Bearer ' + localStorage.getItem('cookie')
-      //   },
-      // }
-    )
+    const response = await fetch(BASE_URL + '/categories', { credentials: 'include', } )
     const data = await response.json()
     resolve(data)
   }
@@ -75,14 +53,7 @@ export function fetchCategories() {
 
 export function fetchBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch(BASE_URL + '/brands',
-      /* remove before deployment */
-      //  {
-      //   headers: {
-      //     Authorization: 'Bearer ' + localStorage.getItem('cookie')
-      //   },
-      // }
-    )
+    const response = await fetch(BASE_URL + '/brands', { credentials: 'include', } )
     const data = await response.json()
     resolve(data)
   }
@@ -95,7 +66,8 @@ export function createProduct(product) {
     const response = await fetch(BASE_URL + '/products/', {
       method: 'POST',
       body: JSON.stringify(product),
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
     })
     const data = await response.json()
     resolve(data)

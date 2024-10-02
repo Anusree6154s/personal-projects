@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { resetPasswordAsync, selectUserId, sendOTPAsync } from "../authSlice";
 import { useState } from "react";
 import { ArrowLeftIcon, CheckCircleIcon } from '@heroicons/react/20/solid'
+import { resetPasswordAsync, selectUserId, sendOTPAsync } from "../../redux";
 
 //TODO: sever part handleSumbit in forgot password
 function ForgotPassword() {

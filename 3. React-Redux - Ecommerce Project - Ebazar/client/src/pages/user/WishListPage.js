@@ -1,5 +1,4 @@
-import Navbar from "../../components/common/Navbar";
-import Wishlist from "../../components/user/Wishlist";
+import { Navbar, Wishlist } from "../../components";
 
 function WishListPage() {
     return (

@@ -1,4 +1,4 @@
-import StripePayment from "../../components/user/StripePayment";
+import { StripePayment } from "../../components";
 
 function StripePaymentPage() {
     return (

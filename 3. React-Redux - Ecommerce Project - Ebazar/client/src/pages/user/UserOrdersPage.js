@@ -1,12 +1,11 @@
-import NavBar from "../../components/common/Navbar";
-import UserOrders from "../../components/user/UserOrders";
+import { Navbar, UserOrders } from "../../components";
 
 function UserOrdersPage() {
     return (
         <div>
-            <NavBar name='My Orders'>
+            <Navbar name='My Orders'>
                 <UserOrders></UserOrders>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

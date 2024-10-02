@@ -43,9 +43,9 @@ exports.addToWishList = catchAsyncUtil.catchAsync(async (req, res) => {
 exports.fetchWishListByUser = catchAsyncUtil.catchAsync(async (req, res) => {
     const { id } = req.user
     const data = await WishList.find({ user: id }).populate('product')
-    if (data.length == 0) {
-        throw new apiUtil.ApiError(status.NOT_FOUND, "No products in wishlist.");
-    }
+    // if (data.length == 0) {
+    //     throw new apiUtil.ApiError(status.NOT_FOUND, "No products in wishlist.");
+    // }
     res.status(status.OK).json(data);
 })
 

@@ -5,7 +5,8 @@ export function createOrder(item) {
         const response = await fetch(BASE_URL + '/orders', {
             method: 'POST',
             body: JSON.stringify(item),
-            headers: { 'content-type': 'application/json' }
+            headers: { 'content-type': 'application/json' },
+            credentials: 'include',
         })
         const data = await response.json()
         resolve({ data })
@@ -19,7 +20,8 @@ export function makePayment(item) {
         const response = await fetch(BASE_URL + '/create-payment-intent', {
             method: 'POST',
             body: JSON.stringify(item),
-            headers: { 'content-type': 'application/json' }
+            headers: { 'content-type': 'application/json' },
+            credentials: 'include',
         })
         const data = await response.json()
         resolve({ data: data.clientSecret })

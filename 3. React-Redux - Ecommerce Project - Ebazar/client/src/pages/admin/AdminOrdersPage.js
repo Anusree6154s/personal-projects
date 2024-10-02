@@ -1,12 +1,11 @@
-import AdminOrders from "../../components/admin/AdminOrders";
-import NavBar from "../../components/common/Navbar";
+import { AdminOrders, Navbar } from "../../components";
 
 function AdminOrdersPage() {
     return (
         <div>
-            <NavBar name='Orders'>
+            <Navbar name='Orders'>
                 <AdminOrders></AdminOrders>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

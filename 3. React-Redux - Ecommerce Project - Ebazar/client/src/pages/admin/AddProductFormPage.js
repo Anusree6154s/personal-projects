@@ -1,12 +1,11 @@
-import NavBar from "../../components/common/Navbar";
-import AddProductForm from "../../components/admin/forms/addProductForm";
+import { AddProductForm, Navbar } from "../../components";
 
 function AddProductFormPage() {
     return (
         <div>
-            <NavBar name='Add Product Details'>
+            <Navbar name='Add Product Details'>
                 <AddProductForm></AddProductForm>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

@@ -1,7 +1,6 @@
-import Navbar from "../../components/common/Navbar";
-import { ProductList } from "../../components/user";
+import { Navbar, ProductList } from "../../components";
 
-function Home() {
+function ProductListPage() {
     return (
         <div>
             <Navbar name='Products'>
@@ -11,4 +10,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default ProductListPage;

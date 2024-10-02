@@ -3,10 +3,9 @@ import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon, PencilIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, ChevronLeftIcon, ChevronRightIcon, StarIcon } from '@heroicons/react/20/solid'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductsByFiltersAsync, selectAllProducts, selectAllBrands, selectAllCategories, selectTotalItems, fetchBrandsAsync, fetchCategoriesAsync, editProductAsync, resetNewProduct } from '../../../product/productSlice';
+import { fetchProductsByFiltersAsync, selectAllProducts, selectAllBrands, selectAllCategories, selectTotalItems, fetchBrandsAsync, fetchCategoriesAsync, editProductAsync, resetNewProduct, selectLoggedInUser } from '../../redux';
 import { ITEMS_PER_PAGE } from '../../app/constants';
 import { Link } from 'react-router-dom';
-import { selectLoggedInUser } from '../../../auth/authSlice';
 
 //TODO: on server, code for sortaoptions
 //TODO: fix json server link to show data for multiple filter options , and pagination for multiple limits
@@ -78,7 +77,7 @@ function AdminProductList() {
   useEffect(() => {
     const pagination = { _page: page }
     user && dispatch(fetchProductsByFiltersAsync({ role: user.role, filter, sort, pagination }))
-  }, [user, filter, sort, page])
+  }, [user, filter, sort, page, dispatch])
 
   useEffect(() => {
     setPage(1)
@@ -88,7 +87,7 @@ function AdminProductList() {
     dispatch(fetchBrandsAsync())
     dispatch(fetchCategoriesAsync())
     dispatch(resetNewProduct())
-  }, [])
+  }, [dispatch])
 
 
   const handleDelete = (products) => {
@@ -143,7 +142,7 @@ function AdminProductList() {
                           <Menu.Item key={option.name} label={option.label}>
                             {({ active }) => (
 
-                              <a
+                              <button
                                 className={classNames(
                                   option.current ? 'font-medium text-gray-900 dark:text-gray-100' : 'text-gray-500 dark:text-gray-300',
                                   active ? 'bg-gray-100 dark:bg-gray-600' : '',
@@ -153,7 +152,7 @@ function AdminProductList() {
                               >
                                 {option.name}
 
-                              </a>
+                              </button>
                             )}
                           </Menu.Item>
                         ))}

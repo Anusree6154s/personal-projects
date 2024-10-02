@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { Link, Navigate } from "react-router-dom"
-import { deleteItemFromCartAsync, resetCartAsync, selectItems, updateCartAsync } from "../cart/cartSlice"
 import { useForm } from "react-hook-form"
-import { selectLoggedInUser, updateUserAsync } from "../auth/authSlice"
-import { useEffect, useState } from "react"
-import { createOrderAsync, makePaymentAsync, selectCurrentOrder } from "../orders/ordersSlice"
+import { useState } from "react"
+import { createOrderAsync, deleteItemFromCartAsync, resetCartAsync, selectCurrentOrder, selectItems, selectLoggedInUser, updateCartAsync, updateUserAsync } from "../../redux"
 
 //TODO: clear cart items upon clicking order now
 //TODO: stock number change in server 
@@ -16,7 +14,7 @@ function Checkout() {
         register,
         reset,
         handleSubmit,
-        formState: { errors },
+        // formState: { errors },
     } = useForm()
 
     const dispatch = useDispatch()
@@ -45,7 +43,7 @@ function Checkout() {
     }
 
 
-    
+
     return (
         <div>
             {/* {!items.length && <Navigate to='/' replace={true}></Navigate>} */}
@@ -53,7 +51,7 @@ function Checkout() {
             {currentOrder && currentOrder.paymentMethod === 'card' && <Navigate to={`/stripe-payment/${currentOrder.id}`} replace={true}></Navigate>}
 
             <Link to='/cart' className='p-2 mb-5 inline-block rounded-md hover:bg-gray-50  dark:text-gray-300 dark:hover:bg-gray-700' ><ArrowLeftIcon className='h-6 w-6 inline-block '></ArrowLeftIcon> Back</Link>
-            
+
             {user && <div className=" grid gap-10 max-w-7xl  lg:grid-cols-5">
                 <div className='lg:col-span-3 px-4 py-6 sm:px-6 lg:px-8 bg-white dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900'>
                     <form noValidate onSubmit={handleSubmit((data) => {
@@ -210,9 +208,9 @@ function Checkout() {
                                         <legend className="text-lg font-semibold leading-7 text-gray-900 dark:text-gray-300"> Address</legend>
                                         <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-400">Choose from existing addresses</p>
                                         <div className="mt-6 space-y-6">
-                                            <ul key='0' role="list" className='flex flex-col gap-2'>
+                                            <ul key='0' className='flex flex-col gap-2'>
                                                 {user.addresses.map((address, index) => (
-                                                    
+
                                                     <li key={index} className=' flex justify-between items-baseline border px-5'>
                                                         <div className=' flex items-baseline gap-5 '>
                                                             <input
@@ -290,7 +288,7 @@ function Checkout() {
                     <div className='bg-white px-4 sm:px-6 lg:px-8 dark:bg-gradient-to-b dark:from-gray-700 dark:to-gray-800'>
                         <div className="flex flex-col max-w-7xl px-4 sm:px-6 lg:px-8">
                             <div className="flex-1 px-4 py-6 sm:px-6 flow-root">
-                                <ul key='1' role="list" className="-my-6 divide-y divide-gray-200 dark:divide-gray-500">
+                                <ul key='1' className="-my-6 divide-y divide-gray-200 dark:divide-gray-500">
                                     {items.map((item, index) => (
                                         <li key={index} className="flex py-6">
                                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-700">

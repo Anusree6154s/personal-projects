@@ -16,3 +16,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.font-allison {
+  font-family: "Allison", cursive;
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}

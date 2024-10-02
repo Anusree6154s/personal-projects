@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchLoggedInUserOrdersAsync, selectUserOrders } from "../../../redux/slices/userSlice";
-import { selectLoggedInUser } from "../../../redux/slices/authSlice";
+import { fetchLoggedInUserOrdersAsync, selectLoggedInUser, selectUserOrders } from "../../redux";
 
 //TODO: add arrival date in form of Thu, 24 Apr 2024
 
@@ -13,7 +12,7 @@ function UserOrders() {
     const orders = useSelector(selectUserOrders)
     useEffect(() => {
         dispatch(fetchLoggedInUserOrdersAsync(user.id))
-    }, [])
+    }, [dispatch, user.id])
 
 
     return (
@@ -32,7 +31,7 @@ function UserOrders() {
                         <div className="flex flex-col border dark:border-gray-500 px-4 py-2  sm:px-6">
                             <p className="text-gray-900 dark:text-gray-300 font-bold text-lg">Items:</p>
                             <div className="flex-1 py-6 flow-root">
-                                <ul role="list" className="-my-6 divide-y divide-gray-200 dark:divide-gray-700">
+                                <ul  className="-my-6 divide-y divide-gray-200 dark:divide-gray-700">
                                     {order.items.map((item, index) => (
                                         <li key={index} className="flex py-6">
                                             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md ">
@@ -47,7 +46,7 @@ function UserOrders() {
                                                 <div>
                                                     <div className="flex justify-between text-base font-medium text-gray-900 dark:text-gray-100">
                                                         <h3>
-                                                            <a >{item.product.title}</a>
+                                                            {item.product.title}
                                                         </h3>
                                                         <p className="ml-4">₹ {item.product.price * item.quantity}</p>
                                                     </div>

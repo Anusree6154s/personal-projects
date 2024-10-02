@@ -16,7 +16,11 @@ server.use(express.static(path.resolve(__dirname, '../..', 'client/build')))
 
 //middlewares
 server.use(cookieParser()); //to get cookies in  req.cookies["jwt"]
-server.use(cors({ exposedHeaders: ['X-Total-Count'] }))
+server.use(cors({
+    exposedHeaders: ['X-Total-Count'],
+    origin: 'http://localhost:3000', // Allow requests from the React app's dev server
+    credentials: true,
+}))
 server.use(express.json()) //to parse request body
 // server.use(express.raw({ type: 'application/json' })) //for webhook
 
@@ -32,7 +36,7 @@ server.use('/api', routes)
 
 // to get index.html and its routes
 server.get('*', (req, res, next) => {
-    console.log('wild route called')
+    // console.log('wild route called')
     next()
 }, (req, res) => res.sendFile(path.resolve(__dirname, '../..', 'client/build', 'index.html')));
 server.use(errorHandler)

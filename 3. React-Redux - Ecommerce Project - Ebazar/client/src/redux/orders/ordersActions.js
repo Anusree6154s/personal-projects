@@ -1,3 +1,3 @@
-import ordersSlice from "./ordersSlice";
+import { createAction } from '@reduxjs/toolkit';
 
-export const { resetOrder } = ordersSlice.actions
+export const resetOrder = createAction('orders/resetOrder');

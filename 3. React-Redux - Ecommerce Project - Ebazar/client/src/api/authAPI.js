@@ -1,12 +1,12 @@
-import { BASE_URL } from '../../app/constants';
-// export let cookie = ''
+import { BASE_URL } from "../app/constants";
 
 export function createUser(userData) {
   return new Promise(async (resolve) => {
     const response = await fetch(BASE_URL + '/auth/signup', {
       method: 'POST',
       body: JSON.stringify(userData),
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
     });
     const data = await response.json();
     resolve({ data });
@@ -20,16 +20,11 @@ export function LoginUser(loginInfo) {
     const response = await fetch(BASE_URL + '/auth/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
     })
     if (response.ok) {
       const data = await response.json()
-      // console.log('document.cookie:', document.cookie)
-      // let cookieArray = document.cookie.split(';')
-      // // cookie = cookieArray[cookieArray.length - 1].toString()
-      // cookie = cookieArray.filter(item => item.startsWith(' e'))[0]
-      // localStorage.setItem('cookie', cookie)
-      // console.log(cookie)
       resolve({ data })
     } else {
       const error = await response.text();
@@ -42,13 +37,7 @@ export function LoginUser(loginInfo) {
 export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     const response = await fetch(BASE_URL + '/auth/check',
-         /* remove before deployment */
-        //  {
-        //   headers: {
-        //     Authorization: 'Bearer ' + localStorage.getItem('cookie')
-        //   },
-        // }
-    )
+      { credentials: 'include', })
     if (response.ok) {
       const data = await response.json()
       resolve({ data })
@@ -64,7 +53,8 @@ export function sendOTP(item) {
     const response = await fetch(BASE_URL + '/auth/sendOTP', {
       method: 'POST',
       body: JSON.stringify(item),
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
     })
     if (response.ok) {
       const data = await response.json()
@@ -82,7 +72,8 @@ export function resetPassword(item) {
     const response = await fetch(BASE_URL + '/auth/resetpassword/' + item.userId, {
       method: 'PATCH',
       body: JSON.stringify({ password: item.password }),
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
     });
     const data = await response.json();
     resolve({ data });
@@ -94,7 +85,8 @@ export function updateUser(update) {
     const response = await fetch(BASE_URL + '/users/user/' + update.id, {
       method: 'PATCH',
       body: JSON.stringify(update),
-      headers: { 'content-type': 'application/json' }
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
     });
     const data = await response.json();
     resolve({ data });
@@ -103,7 +95,7 @@ export function updateUser(update) {
 
 export function signOut() {
   return new Promise(async (resolve, reject) => {
-    const response = await fetch(BASE_URL + '/auth/logout')
+    const response = await fetch(BASE_URL + '/auth/logout', { credentials: 'include', })
     if (response.ok) {
       resolve({ data: "signout success" })
     } else {

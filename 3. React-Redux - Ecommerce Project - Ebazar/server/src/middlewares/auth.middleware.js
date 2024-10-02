@@ -22,7 +22,7 @@ const { catchAsyncUtil, apiUtil } = require("../utils/index.js");
  */
 exports.isAuthJwt = catchAsyncUtil.catchAsync((req, res, next) => {
     passport.authenticate("jwt", (err, user, info) => {
-        //  console.log(err, user, info)
+        // console.log(err, user, info)
         if (err || !user)
             return next(new apiUtil.ApiError(httpStatus.UNAUTHORIZED, "Authentication Failed"))
 
@@ -44,7 +44,7 @@ exports.isAuthJwt = catchAsyncUtil.catchAsync((req, res, next) => {
  */
 exports.isAuthLocal = (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
-        // console.log(err, user, info)
+        // console.log('login:', err, user, info)
         if (err || !user) {
             if (info.message == 'Missing credentials') {
                 return res.status(httpStatus.BAD_REQUEST).json("Missing email or password");

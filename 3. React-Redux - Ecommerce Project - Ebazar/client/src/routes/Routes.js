@@ -1,14 +1,20 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { ForgotPassword, PageNotFound, Protected } from '../components/auth';
 import LogOut from '../components/auth/Logout';
-import { AddProductFormPage, AdminHome, AdminOrdersPage, AdminProductDetailPage, AdminProfilePage, CartPage, CheckoutPage, EditProductFormPage, Home, LoginPage, OrderSuccessPage, ProductDetailPage, SignupPage, StripePaymentPage, UserOrdersPage, UserProfilePage, WishListPage } from '../pages';
+import { AddProductFormPage, AdminHome, AdminOrdersPage, AdminProductDetailPage, AdminProfilePage, CartPage, CheckoutPage, EditProductFormPage, LoginPage, OrderSuccessPage, ProductDetailPage, SignupPage, StripePaymentPage, UserOrdersPage, UserProfilePage, WishListPage } from '../pages';
+import HomePage from '../pages/user/HomePage';
+import ProductListPage from '../pages/user/ProductListPage';
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Protected>
-      <Home></Home>,
+      <ProductListPage></ProductListPage>
     </Protected>
+  },
+  {
+    path: "home",
+    element: <HomePage></HomePage>,
   },
   {
     path: "login",

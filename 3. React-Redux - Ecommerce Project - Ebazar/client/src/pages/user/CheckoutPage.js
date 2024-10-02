@@ -1,5 +1,4 @@
-import Navbar from "../../components/common/Navbar";
-import { Checkout } from "../../components/user";
+import { Checkout, Navbar } from "../../components";
 
 function CheckoutPage() {
     return (

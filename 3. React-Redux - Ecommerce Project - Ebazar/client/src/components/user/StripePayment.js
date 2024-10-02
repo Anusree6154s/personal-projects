@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "./PaymentForm";
-import "../styles/Stripe.css";
+import "../../styles/Stripe.css";
 import { useDispatch, useSelector } from "react-redux";
-import { makePaymentAsync, selectClientSecret, selectCurrentOrder } from "../../../redux/slices/ordersSlice";
+import { makePaymentAsync, selectClientSecret, selectCurrentOrder } from "../../redux";
 
 const stripePromise = loadStripe("pk_test_51OzsYKSEvg4ni96G0o8oXWwkoOKQ4IgvrNnPF86rxihl5866nDtsS6LzY8i6HEpgvukiPOgofvzO3qUj1yW1E1Wy00BsBbS4Jo");
 

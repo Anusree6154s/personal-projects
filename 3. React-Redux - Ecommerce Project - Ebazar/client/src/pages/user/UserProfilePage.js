@@ -1,12 +1,11 @@
-import NavBar from "../../components/common/Navbar";
-import UserProfile from "../../components/user/UserProfile";
+import { Navbar, UserProfile } from "../../components";
 
 function UserProfilePage() {
     return (
         <>
-            <NavBar name='My Profile'>
+            <Navbar name='My Profile'>
                 <UserProfile></UserProfile>
-            </NavBar>
+            </Navbar>
         </>
     );
 }

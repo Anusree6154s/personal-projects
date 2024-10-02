@@ -51,6 +51,7 @@ exports.loginUser = catchAsyncUtil.catchAsync(async (req, res) => {
     .cookie("jwt", req.user.token, {
       expires: new Date(Date.now() + 3600000), //1hr
       httpOnly: true,
+      sameSite: 'Lax',
     })
     .status(httpStatus.OK)
     .json(req.user.info);

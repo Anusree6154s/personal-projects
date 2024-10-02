@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createOrderAsync, makePaymentAsync } from './ordersThunks';
+import { resetOrder } from './ordersActions'; 
 
 const initialState = {
     orders: [],
@@ -8,16 +9,10 @@ const initialState = {
     clientSecret: null
 };
 
-
-
 export const ordersSlice = createSlice({
     name: 'orders',
     initialState,
-    reducers: {
-        resetOrder: (state) => {
-            state.currentOrder = null;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(createOrderAsync.pending, (state) => {
@@ -35,12 +30,11 @@ export const ordersSlice = createSlice({
                 state.status = 'idle';
                 state.clientSecret = action.payload
             })
+            .addCase(resetOrder, (state) => {  
+                state.currentOrder = null;
+            });
     },
 });
-
-
-
-
 
 
 export default ordersSlice.reducer;

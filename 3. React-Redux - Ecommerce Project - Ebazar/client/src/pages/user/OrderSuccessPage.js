@@ -1,5 +1,4 @@
-import Navbar from "../../components/common/Navbar";
-import { OrderSuccess } from "../../components/user";
+import { Navbar, OrderSuccess } from "../../components";
 
 function OrderSuccessPage (){
     return (

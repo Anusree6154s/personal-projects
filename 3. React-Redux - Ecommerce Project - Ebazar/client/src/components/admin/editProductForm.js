@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
-import { editProductAsync, fetchProductByIdAsync, selectAllBrands, selectAllCategories, selectNewProduct, selectProductById } from '../../../redux/slices/productSlice';
 import { Navigate, useParams, useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { editProductAsync, fetchProductByIdAsync, selectAllBrands, selectAllCategories, selectNewProduct, selectProductById } from "../../redux";
 
 //TODO: in my own project make changes to add imag eoption to take image from computer as file using multsmthng
 //TODO: in own projet, make changes to brands and category to select existing and add new ones too
@@ -12,7 +12,7 @@ function EditProductForm(path) {
         register,
         handleSubmit,
         setValue,
-        formState: { errors },
+        // formState: { errors },
     } = useForm()
     const brands = useSelector(selectAllBrands)
     const categories = useSelector(selectAllCategories)
@@ -40,11 +40,11 @@ function EditProductForm(path) {
             setValue('highlight-3', selectedProduct.highlights[2])
             setValue('highlight-4', selectedProduct.highlights[3])
         }
-    }, [selectedProduct])
+    }, [selectedProduct, setValue])
 
     useEffect(() => {
         params.id && dispatch(fetchProductByIdAsync(params.id))
-    }, [params.id])
+    }, [dispatch, params.id])
 
     const handleDelete = () => {
         const product = { ...selectedProduct }

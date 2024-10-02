@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectLoggedInUser, updateUserAsync } from "../../../redux/slices/authSlice";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon, PencilIcon } from '@heroicons/react/20/solid'
-import { selectUserInfo } from "../../../redux/slices/userSlice";
+import { selectLoggedInUser, updateUserAsync } from "../../redux";
 
 //TODO: payment will be added when working on server
 
@@ -27,7 +26,7 @@ function UserProfile() {
     register: register3,
     handleSubmit: handleSubmit3,
     setValue: setValue3,
-    formState: { errors: errors3 },
+    // formState: { errors: errors3 },
   } = useForm()
 
 
@@ -147,7 +146,7 @@ function UserProfile() {
           {!editProfileVisibility && <div>
             <div className="flex justify-between ">
               <p className="text-gray-900 dark:text-gray-300 text-lg mb-8 flex flex-col items-center border border-gray-400 dark:border-gray-600 p-5 rounded-md h-full">
-                <img src={user.image || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZbXR5XmpH1OOJhigJF4nWkJIITHis1Y4dA&s'} alt="image" className="w-20 h-20 rounded-full" />
+                <img src={user.image || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfZbXR5XmpH1OOJhigJF4nWkJIITHis1Y4dA&s'} alt={user.name} className="w-20 h-20 rounded-full" />
                 <div className="mt-4">
                   {user.name && <p className=" font-bold whitespace-nowrap">Name: <span className="font-normal dark:text-gray-400">{user.name}</span></p>}
                   <p className=" font-bold whitespace-nowrap">Email: <span className="font-normal dark:text-gray-400">{user.email}</span></p>
@@ -331,7 +330,7 @@ function UserProfile() {
                 </form>
 
                 <div className="mt-2 space-y-6">
-                  <ul role="list" className='flex flex-col gap-2'>
+                  <ul className='flex flex-col gap-2'>
                     {user.addresses.map((address, index) => (
                       <li key={index} className='items-baseline border dark:border-transparent px-5 bg-white dark:bg-gray-800'>
                         <div className="flex justify-between items-baseline px-5">

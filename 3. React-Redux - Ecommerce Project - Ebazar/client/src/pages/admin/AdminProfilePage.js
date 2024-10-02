@@ -1,12 +1,11 @@
-import AdminProfile from "../../components/admin/profile/AdminProfile";
-import NavBar from "../../components/common/Navbar";
+import { AdminProfile, Navbar } from "../../components";
 
 function AdminProfilePage() {
     return (
         <div>
-            <NavBar name="Profile">
+            <Navbar name="Profile">
                 <AdminProfile></AdminProfile>
-            </NavBar>
+            </Navbar>
         </div>
     );
 }

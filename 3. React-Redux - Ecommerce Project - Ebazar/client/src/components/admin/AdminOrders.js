@@ -3,7 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon, PencilIcon, ArrowDownIcon, ArrowUpIc
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ITEMS_PER_PAGE } from '../../app/constants';
-import { fetchAllOrdersAsync, selectAllOrders, selectTotalOrders, updateOrderAsync } from '../../redux/slices/adminSlice';
+import { fetchAllOrdersAsync, selectAllOrders, selectTotalOrders, updateOrderAsync } from '../../redux';
 import { Link } from 'react-router-dom';
 
 function AdminOrders() {
