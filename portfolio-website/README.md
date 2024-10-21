@@ -1,6 +1,6 @@
 
 ## My Freelance Portfolio Website
-This is my first personal freelance portfolio website. It is built using Html, Css and Javascript. It features all my projects in design, developemnt and illustrations.
+This is my first personal freelance portfolio website. It is built using Html, Css and Javascript. It features all my projects in design, developemnt and illustrations category.
 
 ### Web url
 - https://personal-projects-psi.vercel.app/
