@@ -5,7 +5,7 @@ This is my first personal freelance portfolio website. It is built using Html, C
 ### Web url
 - https://personal-projects-psi.vercel.app/
 ### Installation
-1. **Clone the repo:** ` git clone https://github.com/yourusername/portfolio.git`
+1. **Clone the repo:** ` git clone https://github.com/Anusree6154s/personal-projects/tree/main/portfolio-website`
 2. **Open Index.html on browser:** Right click on index.html and open in browser
 
 ### Features
