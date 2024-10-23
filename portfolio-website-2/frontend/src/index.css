@@ -1,0 +1,49 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --defaultColor: #dedeff;
+  --defaultColor-1: #ffffff6e;
+  --defaultColor-2: #deebff;
+  --default-color-3: #deebffa9;
+
+  --dark-text: #f3f9fc;
+  --dark-background: #020708;
+  --dark-primary: #2e8cb8;
+  --dark-secondary: #361c6d;
+  --dark-accent: #682697;
+
+  --light-text: #333333;
+  --light-background: #ffffff;
+  --light-primary: #3f51b5;
+  --light-secondary: #326FD0;
+  /* --light-secondary: #757de8; */
+  --light-accent: #2196f3;
+  --special:gold;
+  --special-text:#473707;
+
+  /* --text-primary: "Quattrocento";
+  --text-secondary: "Quattrocento Sans"; */
+  --text-primary: "Nunito Sans";
+  --text-secondary: "Nunito Sans";
+  /* --text-primary: "Montserrat";
+  --text-secondary: "Montserrat"; */
+}
+
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--text-secondary);
+  /* width:100vw; */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
