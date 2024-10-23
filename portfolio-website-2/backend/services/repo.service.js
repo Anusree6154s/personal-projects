@@ -13,6 +13,7 @@ const fs = require('fs');
 const cheerio = require('cheerio');
 
 const atob = require('atob'); // Node.js utility to decode base64 content
+require('dotenv').config()
 
 
 exports.fetchRepoNames = async () => {
@@ -78,7 +79,7 @@ exports.fetchRepoDetails = async (repoName) => {
         // });
         const response = await axios.get(`https://api.github.com/repos/${repoName}`, {
             headers: {
-                Authorization: `token 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`,
+                Authorization: `token ${process.env.gitSecret}`,
                 Accept: 'application/vnd.github.v3+json',
             },
         });

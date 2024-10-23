@@ -22,29 +22,29 @@ export const fetchProjects = async (setProjects) => {
 //     }
 // }
 
-export const fetchReadme = async (setRepoNames) => {
+// export const fetchReadme = async (setRepoNames) => {
 
-    const username = 'Anusree6154s';  // GitHub username
-    const repo = 'Anusree6154s';       // Repository name
+//     const username = 'Anusree6154s';  // GitHub username
+//     const repo = 'Anusree6154s';       // Repository name
 
-    try {
-        // Fetch README content from GitHub API
-        const response = await axios.get(`https://api.github.com/repos/${username}/${repo}/readme`, {
-            headers: {
-                Authorization: `token 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`,
-                Accept: 'application/vnd.github.v3+json',
-            },
-        });
+//     try {
+//         // Fetch README content from GitHub API
+//         const response = await axios.get(`https://api.github.com/repos/${username}/${repo}/readme`, {
+//             headers: {
+//                 ,
+//                 Accept: 'application/vnd.github.v3+json',
+//             },
+//         });
 
 
-        const readmeContent = response.data;
-        const extractedRepoNames = extractRepoLinks(readmeContent);
-        setRepoNames(extractedRepoNames);
-    } catch (error) {
-        console.error('Error fetching README:', error);
-        // alert('error getting repo names')
-    }
-};
+//         const readmeContent = response.data;
+//         const extractedRepoNames = extractRepoLinks(readmeContent);
+//         setRepoNames(extractedRepoNames);
+//     } catch (error) {
+//         console.error('Error fetching README:', error);
+//         // alert('error getting repo names')
+//     }
+// };
 
 
 const extractRepoLinks = (readmeContent) => {
