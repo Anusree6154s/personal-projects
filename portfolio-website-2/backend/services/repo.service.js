@@ -25,7 +25,7 @@ exports.fetchRepoNames = async () => {
         // Fetch README content from GitHub API
         const response = await axios.get(`https://api.github.com/repos/${username}/${repo}/readme`, {
             headers: {
-                Authorization: `token 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`,
+                Authorization: `token ${process.env.gitToken}`,
                 Accept: 'application/vnd.github.v3+json',
             },
         });
