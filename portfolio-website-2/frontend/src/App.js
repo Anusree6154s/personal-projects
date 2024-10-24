@@ -1,13 +1,21 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Resume from './pages/Resume';
 import Header from './components/Header';
-import { useEffect, useState } from 'react';
-import { fetchProjects } from './utils/Projects.utils';
 import Footer from './components/Footer';
+import ProjectsPage from './pages/ProjectsPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { ProjectsContext } from './contexts/ProjectContext';
+import {fetchProjects} from './utils/Projects.utils'
 
 function App() {
+  const [projects, setProjects] = useState([])
+
+  // useEffect(() => {
+  //   fetchProjects(setProjects);
+  // }, [])
+
+  console.log(projects)
 
   // const owner = 'Anusree6154s';
   // const repo = 'qtify-frontend';
@@ -49,21 +57,25 @@ function App() {
   //     console.log('yes')
   //     // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [])
+  
+
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <Router>
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/resume" element={<Resume />} />
-            </Routes>
-          </div>
-        </Router>
-      </main>
-      <Footer />
-    </div>
+    <ProjectsContext.Provider value={{projects, setProjects}}>
+      <div className="App">
+        <Header />
+        <main>
+          <Router>
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<ProjectsPage />} />
+              </Routes>
+            </div>
+          </Router>
+        </main>
+        <Footer />
+      </div>
+    </ProjectsContext.Provider>
   );
 }
 

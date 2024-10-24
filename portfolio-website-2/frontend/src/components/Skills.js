@@ -21,15 +21,15 @@ export default function Skills() {
         { name: 'Tailwind', img: '/images/icons/tailwind-icon.png' }
     ]
     return (
-        <section id='skills' style={{ height: 'fit-content', background: 'var(--defaultColor-2)', display: 'flex', justifyContent: 'center', padding: '5% 0% ' }}>
+        <section id='skills' style={{ height: 'fit-content', background: 'var(--default-color-2)', display: 'flex', justifyContent: 'center', padding: '8% 0% '}}>
             <div style={{ width: '80%' }}>
-                <h1 style={{ marginBottom: '5%', marginTop: '0px', color: 'var(--light-primary)', fontWeight: '900', textTransform: 'uppercase' }}>
+                <h1 style={{ marginBottom: '3%', marginTop: '0px', color: 'var(--light-primary)', fontWeight: '900', textTransform: 'uppercase' }}>
                     Skills
                 </h1>
                 <div style={{ gap: '2%', flexWrap: 'wrap', display: 'flex', justifyContent: 'center' }}>
 
                     {skills.map((skill, index) =>
-                        <div key={index} style={{ width: '100px', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '2%', flexDirection: 'column', background: 'var(--defaultColor-1)', borderRadius: '5px' }}>
+                        <div key={index} style={{ width: '100px', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '2%', flexDirection: 'column', background: 'var(--default-color-1)', borderRadius: '5px' }}>
                             <img src={skill.img} alt={skill.name} style={{ width: '40px', height: '40px' }} />
                             <span style={{ margin: '5px', fontSize: '15px' }}>
                                 {skill.name}

@@ -1,12 +1,16 @@
+*{
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 :root {
-  --defaultColor: #dedeff;
-  --defaultColor-1: #ffffff6e;
-  --defaultColor-2: #deebff;
+  --default-color: #dedeff;
+  --default-color-1: #ffffff6e;
+  --default-color-2: #deebff;
   --default-color-3: #deebffa9;
 
   --dark-text: #f3f9fc;
@@ -18,11 +22,11 @@ code {
   --light-text: #333333;
   --light-background: #ffffff;
   --light-primary: #3f51b5;
-  --light-secondary: #326FD0;
+  --light-secondary: #326fd0;
   /* --light-secondary: #757de8; */
   --light-accent: #2196f3;
-  --special:gold;
-  --special-text:#473707;
+  --special: gold;
+  --special-text: #473707;
 
   /* --text-primary: "Quattrocento";
   --text-secondary: "Quattrocento Sans"; */

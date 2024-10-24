@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 
 export default function Header() {
     return (
-        <header>
+        <header style={{position:'sticky', top:'0px', zIndex:2}}>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" style={{ background: 'white' }}>
+                <AppBar position="static" style={{ background: 'white' , boxShadow:'0px 1px 5px 1px #00000026'}}>
                     <Toolbar style={{ display: 'flex', justifyContent: 'center' }}>
                         <Box style={{ width: '80%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <Typography variant="h6" component="div" sx={{
@@ -23,7 +23,7 @@ export default function Header() {
                                 <a href='/#projects'>Projects</a>
                                 <a href='/#contact'>Contact</a>
                             </Box>
-                            <a href="https://drive.google.com/file/d/1YNIxrCHLCIvbsCaX-h-toqxL6EBXIdy3/view?usp=sharing" target='_blank' rel="noreferrer" color="inherit" style={{ background: 'gold', color: 'var(--special-text)', padding: '5px 15px', border: 'none', fontWeight: 'bold', borderRadius:'5px' }}>Resume</a>
+                            <a href="https://drive.google.com/file/d/1yCF-00tsgWcXbntJY-yjH896HMvbsFew/view?usp=drive_link" target='_blank' rel="noreferrer" color="inherit" style={{ background: 'gold', color: 'var(--special-text)', padding: '5px 15px', border: 'none', fontWeight: 'bold', borderRadius:'5px' }}>Resume</a>
                         </Box>
                     </Toolbar>
                 </AppBar>

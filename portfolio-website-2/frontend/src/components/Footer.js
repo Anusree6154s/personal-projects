@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer style={{ padding: '20px', backgroundColor: '#f8f9fa', textAlign: 'center', display: 'flex', justifyContent: 'center', fontFamily: 'monospace', color:'darkslategray' }}>
+        <footer style={{ padding: '20px', backgroundColor: '#f8f9fa', textAlign: 'center', display: 'flex', justifyContent: 'center', fontFamily: 'monospace', color:'darkslategray', marginTop:'5%' }}>
             <div style={{ width: '60%', display: 'flex', justifyContent: 'space-around' }}>
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px', textAlign: 'left' }}>
                     <span>

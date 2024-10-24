@@ -36,17 +36,17 @@ export default function Contact() {
 
 
   return (
-    <section id='contact' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <section id='contact' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', paddingTop:'3%' }}>
       <div style={{ width: '60%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
 
-        <h1 style={{ marginBottom: '5%', marginTop: '0px', color: 'var(--light-primary)', fontWeight: '900', textTransform: 'uppercase' }}>
+        <h1 style={{ marginBottom: '3%', marginTop: '0px', color: 'var(--light-primary)', fontWeight: '900', textTransform: 'uppercase' }}>
           Contact Me
         </h1>
 
         <div style={{ background: 'var(--light-primary)', height: '70%', borderRadius: '20px', display: 'flex', justifyContent: 'space-around', width: "100%" }}>
 
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/images/contact-img.png" alt="contact-img" style={{ width: '70%', background: 'var(--defaultColor-1)', borderRadius: '5px' }} />
+            <img src="/images/contact-img.png" alt="contact-img" style={{ width: '70%', background: 'var(--default-color-1)', borderRadius: '5px' }} />
           </div>
 
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: "100%", }}>
@@ -56,13 +56,13 @@ export default function Contact() {
               <input type="email" name='email' placeholder='Email' style={{ width: '80%', padding: '10px 20px' }} />
               <input type="text" name='subject' placeholder='Subject' style={{ width: '80%', padding: '10px 20px' }} />
               <textarea name='message' placeholder='Message' style={{ width: '80%', padding: '10px 20px', height: '50px' }} />
-              <button style={{ width: '50%', padding: '10px 20px', alignSelf: 'center', background: 'gold',color:'var(--special-text)', fontWeight: 'bold', border: 'none', borderRadius: '2px' }}>Send</button>
+              <button style={{ width: '50%', padding: '10px 20px', alignSelf: 'center', background: 'gold', color: 'var(--special-text)', fontWeight: 'bold', border: 'none', borderRadius: '2px' }}>Send</button>
 
             </form>
           </div>
         </div>
 
-       
+
       </div>
 
       <Snackbar

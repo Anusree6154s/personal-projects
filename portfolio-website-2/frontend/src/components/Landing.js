@@ -6,7 +6,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export default function Landing() {
     return (
-        <section id='landing' style={{ display: 'flex', justifyContent: 'center', height: '90vh', alignItems: 'center' }}>
+        <section id='landing' style={{ display: 'flex', justifyContent: 'center', height: '90vh', alignItems: 'center' , marginBottom:'2%'}}>
             <div style={{ width: '75%', display: 'flex', gap: '10%' }}>
 
                 <div style={{ flex: 1, textAlign: 'left' }}>
@@ -42,8 +42,8 @@ export default function Landing() {
 
                         <p style={{ fontSize: '16px' }}> Explore my projects to learn more!</p>
 
-                        <a href='#projects' style={{ background: 'gold', border: 'none', padding: '10px 20px', display: 'flex', alignItems: 'center', color: 'var(--special-text)', fontWeight: 'bold', borderRadius: '5px', cursor: 'pointer', marginBottom: '20px', width: 'fit-content' }} onMouseOver={(e) => e.currentTarget.style.background = 'dark-gold'} onMouseOut={(e) => e.currentTarget.style.background = 'gold'}>
-                            <span>PROJECTS</span>
+                        <a href='/projects' style={{ background: 'gold', border: 'none', padding: '10px 20px', display: 'flex', alignItems: 'center', color: 'var(--special-text)', fontWeight: 'bold', borderRadius: '5px', cursor: 'pointer', marginBottom: '20px', width: 'fit-content' }} onMouseOver={(e) => e.currentTarget.style.background = 'dark-gold'} onMouseOut={(e) => e.currentTarget.style.background = 'gold'}>
+                            <span>VIEW ALL PROJECTS</span>
                         </a>
 
                         <div style={{ display: 'flex', gap: '20px' }}>
